@@ -1,99 +1,110 @@
-//! MODE SELECT BUTTONS
-const modeSelectButtons = () => {
-  const $main = $("<div>").addClass("main");
-  $("body").append($main);
+//* Data
+let score = 3;
 
-  const $gameContainer = $("<div>").addClass("gameContainer");
-  $("body").append($gameContainer);
+let noteInterval = 1000;
+let lightDuration = 500;
 
-  const $modeOne = $("<button>").addClass("button bOne").text("Mode One");
-  $(".main").append($modeOne);
-
-  // const $modeTwo = $("<button>").addClass("button bTwo").text("Mode Two");
-  // $(".main").append($modeTwo);
-
-  const $reset = $("<button>").addClass("button reset").text("Reset");
-  $(".main").append($reset);
-
-  //  someday...
-  // const $settings = $("<button>").addClass("button reset").text("Settings");
-  // $(".main").append($settings);
-
-  const $h2 = $("<h2>").text(`Your current score is ${$level}`);
-  $(".main").append($h2);
-
-  $(".gameContainer").hide();
-
-  $(".bOne").on("click", () => {
-    $(".gameContainer").show();
-    $(".bTwo").hide();
-  });
-
-  $(".bTwo").on("click", () => {
-    $(".gameContainer").show();
-    $(".bOne").hide();
-  });
-
-  $(".reset").on("click", () => {
-    $(".gameContainer").hide();
-    $(".bTwo").show();
-    $(".bOne").show();
-  });
-  return;
-};
-
-let $level = 0;
-// let randomPattern = [];
 const userChoice = [];
-// let computer = true;
-// let user = false;
+const randomized = [];
 
-let modeOne = ["red", "yellow", "orange", "green", "purple", "blue"];
+//* Mode Options
+const majorPentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
+const majorScale = [
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "turquoise",
+  "blue",
+  "purple",
+];
 
-//! FUNCTIONS
-const gameMode = (type) => {
-  for (let i = 0; i < type; i++) {
-    const playBox = $("<div>").addClass(`playBox ${[i]}`);
-    $(".gameContainer").append(playBox);
-  }
+//* Functions
+const randomizer = () => {
+  randomized.forEach((item, index) => {
+    setTimeout(() => {
+      // console.log(randomized[index]);
+      $(`#${item}`).css("background", randomized[index]);
+      setTimeout(() => {
+        $(`#${item}`).css("background", "");
+        $(`#${item}`).css("transition", "background-color 0.5s ease");
+      }, lightDuration);
+    }, noteInterval * index);
+  });
 };
 
-const randomizer = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    let temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+const generator = (score, mode) => {
+  for (let i = 1; i <= score; i++) {
+    let random = Math.floor(Math.random() * mode.length);
+    randomized.push(mode[random]);
+    console.log(random);
   }
-  return array;
-};
-let randomPattern = randomizer(modeOne);
-console.log("randomPattern", randomPattern);
-
-// const randomizer = () => {
-//   let randomNumber = Math.floor(Math.random() * 4);
-//   randomPattern.push(modeOne[randomNumber]);
-//   $level += 1;
-//   return randomNumber;
-// };
-
-const displayRandomiseResult = () => {
   randomizer();
-  // $(`.${randomNumber}`).css("background-color", modeOne[randomNumber]);
-  // color change
-  // result
 };
 
-const userInput = () => {
-  userInputKey = [];
-  $("playBox").on("click");
-  //compare userInputKey === randomPattern
+const user = () => {
+  $(".playBox").on("click", (e) => {
+    console.log("clicked", e.target.id);
+    userChoice.push(e.target.id);
+    compare(userChoice, randomized);
+  });
 };
 
-//! MAIN
-// $(() => {
-modeSelectButtons();
-gameMode(6);
-userInput();
-// randomizer();
-// });
+const compare = (arr1, arr2) => {
+  if (arr1.length === arr2.length) {
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        score = 1;
+        $("#score").text(`Current score: ${score}`);
+        return score;
+      } else {
+        score += 1;
+        $("#score").text(`Current score: ${score}`);
+        return score;
+      }
+    }
+  }
+};
+
+//! BUTTONS!
+const buttons = () => {
+  $("#score").text(`Current score: ${score}`);
+
+  $("#resetOne").on("click", () => {
+    score = 1;
+    $(".main").toggle();
+    $("#gameOne").toggle();
+  });
+
+  $("#resetTwo").on("click", () => {
+    score = 1;
+    $(".main").toggle();
+    $("#gameTwo").toggle();
+  });
+
+  //* Mode One
+  $("#gameOne").toggle();
+  $("#modeOne").on("click", () => {
+    $("#gameOne").toggle();
+    $(".main").toggle();
+  });
+
+  //* Mode Two
+  $("#gameTwo").toggle();
+  $("#modeTwo").on("click", () => {
+    $("#gameTwo").toggle();
+    $(".main").toggle();
+  });
+};
+$(() => {
+  buttons();
+  user();
+  generator(score, majorPentatonic);
+  // gameUp();
+  // compare(randomized, userChoice);
+  $("#score").text(`Current score: ${score}`);
+});
+
+//? ADD ON CLICK TO CHANGE THE MODES INSIDE THE FUNCTION
+//? SETTING TO BE ABLE CHANGE THE BLINKING TIME AND NOTE DISTANCE
+//? HOW TO LOOP THE GAME!?
