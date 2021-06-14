@@ -1,0 +1,94 @@
+body {
+  font-family: "Roboto", sans-serif;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  height: 100vh;
+  background-color: lightslategray;
+  text-align: center;
+}
+
+#gameOne {
+  border: 5px solid wheat;
+  border-radius: 10px;
+}
+
+.main {
+  display: inline-block;
+  justify-content: center;
+  border: 150px;
+  margin: 150px;
+  /* border: 5px solid wheat; */
+}
+
+.gameContainer {
+  justify-content: space-around;
+  display: flex;
+  margin-top: 30px;
+}
+
+.playBox {
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  transition: background-color 0.5s ease;
+}
+
+/* .button {
+  height: 50px;
+  width: 100px;
+  background-color: lightlightgoldenrodyellow;
+  margin: 10px;
+} */
+
+button {
+  background: none;
+  color: #ffa260;
+  border: 2px solid;
+  padding: 1em 2em;
+  font-size: 1em;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+button:hover {
+  border-color: #f1ff5c;
+  color: white;
+  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  transform: translateY(-0.25em);
+  cursor: progress;
+}
+
+/* .button:hover {
+  box-shadow: 5px 5px rgb(124, 130, 130);
+} */
+
+#red:hover {
+  background: red;
+  box-shadow: 2px 2px lightgoldenrodyellow;
+}
+#orange:hover {
+  background: orange;
+  box-shadow: 2px 2px lightgoldenrodyellow;
+}
+#yellow:hover {
+  background: yellow;
+  box-shadow: 2px 2px lightgoldenrodyellow;
+}
+#green:hover {
+  background: green;
+  box-shadow: 2px 2px lightgoldenrodyellow;
+}
+#turquoise:hover {
+  background: turquoise;
+  box-shadow: 2px 2px lightgoldenrodyellow;
+}
+#blue:hover {
+  background: blue;
+  box-shadow: 2px 2px lightgoldenrodyellow;
+}
+#purple:hover {
+  background: purple;
+  box-shadow: 2px 2px lightgoldenrodyellow;
+}
