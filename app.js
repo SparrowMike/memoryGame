@@ -1,8 +1,10 @@
-//* Data
 let score = 1;
 
 let lightDuration = 650;
 let noteInterval = 1000;
+let audioSpeed = 1;
+
+// $("#lightDuration").push(lightDuration);
 
 const userChoice = [];
 const randomized = [];
@@ -19,13 +21,11 @@ const randomized = [];
 //     "purple",
 //   ],
 // };
-const majorPentatonic = {
-  colours: ["red", "orange", "yellow", "turquoise", "blue"],
-  // notes: ["src =" /Sounds/RedC-4.mp3"", ]
-};
+
+const majorPentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
 //! Functions
-//*==========GENERATES RANDOM PATTERN BASED ON CURRENT SCORE AND THE MODE SENDS IT OVER TO NEW ARRAY
+//*========GENERATES RANDOM PATTERN=============
 const generator = (score, mode) => {
   for (let i = 1; i <= score; i++) {
     let random = Math.floor(Math.random() * mode.length);
@@ -34,30 +34,32 @@ const generator = (score, mode) => {
   randomizer();
 };
 
-//*==========DISPLAYS THE COLOURS ON THE SCREEN BASED ON GENERATOR ARRAY [randomized]
+//*==========DISPLAYS THE COLOURS===============
 const randomizer = () => {
   randomized.forEach((item, index) => {
     setTimeout(() => {
       console.log(randomized[index]);
+      $(`#${item}-audio`).get(0).play();
       $(`#${item}`).css("background", randomized[index]);
       setTimeout(() => {
         $(`#${item}`).css("background", "");
-        $(`#${item}`).css("transition", "background-color 0.5s ease");
+        $(`#${item}`).css("transition", "background-color 0.6s ease");
       }, lightDuration);
     }, noteInterval * index);
   });
 };
 
-//*==========TAKES USER INPUT AND STORES ITg IN NEW ARRAY [userChoice]
+//*=============USER INPUT=======================
 const user = () => {
   $(".playBox").on("click", (e) => {
     userChoice.push(e.target.id);
+    $(`#${e.target.id}-audio`).get(0).play();
     console.log("clicked", e.target.id);
     compare(userChoice, randomized);
   });
 };
 
-//*==========COMPARES ARRAYS OF USER AND THE COMPUTER [randomized] [userChoice]
+//*==========COMPARES ARRAYS======================
 const compare = (arr1, arr2) => {
   if (arr1.length === arr2.length) {
     for (let i = 0; i < arr1.length; i++) {
@@ -72,15 +74,12 @@ const compare = (arr1, arr2) => {
   }
 };
 
+//*===========RESET THE GAME===================
 const reset = () => {
   score = 1;
-  $("#score").text(`Current score: ${score}`);
-  alert("Wrong patter, going back to level 1");
   userChoice.splice(0, userChoice.length);
   randomized.splice(0, randomized.length);
-  generator(score, majorPentatonic.colours);
-  console.log(userChoice);
-  console.log(randomized);
+  $("#popUp").dialog("open");
   return;
 };
 
@@ -89,33 +88,71 @@ const nextLevel = () => {
   $("#score").text(`Current score: ${score}`);
   userChoice.splice(0, userChoice.length);
   randomized.splice(0, randomized.length);
-  generator(score, majorPentatonic.colours);
-  console.log(userChoice);
-  console.log(randomized);
+  setTimeout(() => {
+    generator(score, majorPentatonic);
+  }, 1000);
   return;
 };
 
-//! BUTTONS!
+//! BUTTONS
 const buttons = () => {
-  $("#score").text(`Current score: ${score}`);
+  //? POP UP'S
+  $("#popUp").dialog({ autoOpen: false }, { title: "Game Over!" });
+  $("#modes").dialog({ autoOpen: false }, { title: "Modes" });
 
-  $(".next").on("click", () => {
-    // generator(score, majorPentatonic.colours);
-  });
-
-  //? Mode One
+  //? START THE GAME
   $("#gameOne").toggle();
   $("#modeOne").on("click", () => {
     $("#gameOne").toggle();
     $(".main").toggle();
-    // generator(score, majorPentatonic.colours);
+    setTimeout(() => {
+      generator(score, majorPentatonic);
+    }, 100);
   });
 
-  $("#resetOne").on("click", () => {
+  //? RESET THE GAME
+  $(".reset").on("click", () => {
+    score = 1;
+    $(".audio").stop();
+    $("#score").text(`Current score: ${score}`);
+    userChoice.splice(0, userChoice.length);
+    randomized.splice(0, randomized.length);
+    $("#popUp").dialog("close");
+    generator(score, majorPentatonic);
+  });
+
+  //? SETTINGS
+  $(".settingsWindow").dialog({ autoOpen: false }, { title: "Settings" });
+  $(".settings").on("click", () => {
+    $(".settingsWindow").dialog("open");
+    score = 1;
+    userChoice.splice(0, userChoice.length);
+    randomized.splice(0, randomized.length);
+  });
+  $("#confirm").on("click", () => {
+    $(".settingsWindow").dialog("close");
+    // $("#lightDuration").push(lightDuration);
+    // $("#noteInterval").push(noteInterval);
+    $("#audioSpeed").push(audioSpeed);
+    console.log(audioSpeed);
+    console.log(noteInterval);
+    console.log(lightDuration);
+  });
+
+  //? BACK TO MAIN
+  $(".back").on("click", () => {
     $(".main").toggle();
     $("#gameOne").toggle();
+    $(".audio").stop();
     score = 1;
     $("#score").text(`Current score: ${score}`);
+    userChoice.splice(0, userChoice.length);
+    randomized.splice(0, randomized.length);
+  });
+
+  //? MODES
+  $("#modeSetting").on("click", () => {
+    $("#modes").dialog("open");
   });
 
   //? Mode Two
@@ -124,31 +161,16 @@ const buttons = () => {
   //   $("#gameTwo").toggle();
   //   $(".main").toggle();
   // });
-
-  // $("#resetTwo").on("click", () => {
-  //   $(".main").toggle();
-  //   $("#gameTwo").toggle();
-  //   score = 1;
-  // });
-
-  //? Settings
-  $("#settings").toggle();
-  $("#set").on("click", () => {
-    $("#settings").toggle();
-    $(".main").toggle();
-  });
-  $("#back").on("click", () => {
-    $("#settings").toggle();
-    $(".main").toggle();
-  });
 };
-
-$("#score").text(`Current score: ${score}`);
 
 //*===================MAIN========================
 const main = () => {
-  // buttons();
-  generator(score, majorPentatonic.colours); // calls randomizer - blinks the lights
-  user(); // calls the compare functions compares calls either reset or next level based on the outcome
+  buttons();
+  user();
 };
 $(main);
+
+// play audio on every click (wont play if click is fast)
+// only execute user after randomizer is done (breaks the game)
+// occasionaly compares doesnt evaluate properly
+// strange behaviour with audio stop

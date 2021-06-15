@@ -7,41 +7,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/excite-bike/jquery-ui.min.css">
+    <title>Simonous</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
 <body>
-    <!-- <div class="main">
+    <div class="main">
         <h1>Welcome to Simonous!</h1>
-        <h3>Select your mode!</h3>
-        <button id="modeOne">Mode One</button>
-        <button id="modeTwo">Mode Two</button>
-        <button id="set">Settings</button>
+        <button id="modeOne">Game on!</button>
+        <button id="modeSetting">Modes</button>
+        <button class="settings">Settings</button>
     </div> 
     
-    <div id="settings">
-        <button id="back">Back</button>
+     <!--? POPUP! -->
+     <div id="popUp">
+         <p>Better luck next time!</p>
+         <button class="reset">Reset</button>
+     </div>
+     <!--? MODES -->
+     <div id="modes">
+         <button>Major Pentatonic</button>
+         <button>Minor Pentatonic</button>
+         <button>Major Scale</button>
+         <button>Minor Scale</button>
+     </div>
+
+     <!--? SETTINGS! -->
+     <div class="settingsWindow">
         <h4>Light duration</h4>
-        <input type="range" min="300" max="700" value="600" name="lightDuration">
+        <input type="range" min="300" max="700" value="600" id="lightDuration">
         
         <h4>Light interval</h4>
-        <input type="range" min="700" max="1500" value="1300" name="noteInterval">
-    </div> -->
-    
-    
+        <input type="range" min="700" max="1500" value="1300" id="noteInterval">
+        
+        <h4>Audio speed</h4>
+        <input type="range" min="1" max="4" value="2" id="audioSpeed">
+
+        <button id="confirm">Confirm</button>     
+    </div>
+
     <div id="gameOne">
         <h3 id="score">Current score: 1</h3>
-        <button id="resetOne">Reset</button>
-        <button class="next">Next</button>
+        <button class="reset">Reset</button>
+        <button class="back">Back</button>
+        <button class="settings">Settings</button>
+
         <div class="gameContainer"> 
             <div class="playBox" id="red">
-                <!-- <iframe id="0" src="/Sounds/RedC-4.mp3" allow="autoplay" style="display:none"></iframe>
-                <audio class="red" src="/Sounds/RedC-4.mp3" type="audio/mp3" allow="autoplay"></audio>
-                <source src="/Sounds/RedC-4.mp3" type="audio/mp3"> -->
+                <audio class="audio" id="red-audio" src="/Sounds/RedC-4.mp3" allow="muted"></audio>
             </div>
-            <div class="playBox" id="orange"></div>
-            <div class="playBox" id="yellow"></div>
-            <div class="playBox" id="turquoise"></div>
-            <div class="playBox" id="blue"></div>
+            <div class="playBox" id="orange">
+                <audio class="audio" id="orange-audio" src="/Sounds/OrangeD-4.mp3" allow="muted"></audio>
+            </div>
+            <div class="playBox" id="yellow">
+                <audio class="audio" id="yellow-audio" src="/Sounds/YellowE4.mp3" allow="muted"></audio>
+            </div>
+            <div class="playBox" id="turquoise">
+                <audio class="audio" id="turquoise-audio" src="/Sounds/TurquoiseG-4.mp3" allow="muted"></audio>
+            </div>
+            <div class="playBox" id="blue">
+                <audio class="audio" id="blue-audio" src="/Sounds/BlueB-5.mp3" allow="muted"></audio>
+            </div>
         </div>
     </div>
         
