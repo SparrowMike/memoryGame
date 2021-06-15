@@ -10,19 +10,34 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="main">
+    <!-- <div class="main">
         <h1>Welcome to Simonous!</h1>
         <h3>Select your mode!</h3>
         <button id="modeOne">Mode One</button>
         <button id="modeTwo">Mode Two</button>
-    </div>
+        <button id="set">Settings</button>
+    </div> 
+    
+    <div id="settings">
+        <button id="back">Back</button>
+        <h4>Light duration</h4>
+        <input type="range" min="300" max="700" value="600" name="lightDuration">
+        
+        <h4>Light interval</h4>
+        <input type="range" min="700" max="1500" value="1300" name="noteInterval">
+    </div> -->
     
     
     <div id="gameOne">
         <h3 id="score">Current score: 1</h3>
-        <button id="resetOne">Reset </button>
+        <button id="resetOne">Reset</button>
+        <button class="next">Next</button>
         <div class="gameContainer"> 
-            <div class="playBox" id="red"></div>
+            <div class="playBox" id="red">
+                <!-- <iframe id="0" src="/Sounds/RedC-4.mp3" allow="autoplay" style="display:none"></iframe>
+                <audio class="red" src="/Sounds/RedC-4.mp3" type="audio/mp3" allow="autoplay"></audio>
+                <source src="/Sounds/RedC-4.mp3" type="audio/mp3"> -->
+            </div>
             <div class="playBox" id="orange"></div>
             <div class="playBox" id="yellow"></div>
             <div class="playBox" id="turquoise"></div>
@@ -30,7 +45,7 @@
         </div>
     </div>
         
-    <div id="gameTwo">
+    <!-- <div id="gameTwo">
         <h3 id="score">Current score: 1</h3>
         <button id="resetTwo">Reset </button>
         <div class="gameContainer" id="modeTwo"> 
@@ -42,7 +57,7 @@
             <div class="playBox" id="blue"></div>
             <div class="playBox" id="purple"></div>
         </div>
-    </div>
+    </div> -->
     
     <script src="app.js"></script>
 </body>

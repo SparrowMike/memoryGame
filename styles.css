@@ -11,13 +11,15 @@ body {
 #gameOne {
   border: 5px solid wheat;
   border-radius: 10px;
+  margin: 100px;
+  padding: 50px;
 }
 
 .main {
   display: inline-block;
   justify-content: center;
-  border: 150px;
-  margin: 150px;
+  border: 100px;
+  margin: 100px;
   /* border: 5px solid wheat; */
 }
 
@@ -28,8 +30,8 @@ body {
 }
 
 .playBox {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   background-color: white;
   border: 1px solid black;
   border-radius: 50%;
@@ -47,6 +49,7 @@ button {
   background: none;
   color: #ffa260;
   border: 2px solid;
+  margin: 5px;
   padding: 1em 2em;
   font-size: 1em;
   transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
