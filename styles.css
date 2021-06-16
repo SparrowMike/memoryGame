@@ -38,18 +38,6 @@ body {
   transition: background-color 0.5s ease;
 }
 
-/* #popUp {
-  border: 1px solid red;
-  background: grey;
-} */
-
-/* .button {
-  height: 50px;
-  width: 100px;
-  background-color: lightlightgoldenrodyellow;
-  margin: 10px;
-} */
-
 button {
   background: none;
   color: #ffa260;
@@ -67,10 +55,6 @@ button:hover {
   transform: translateY(-0.25em);
   cursor: progress;
 }
-
-/* .button:hover {
-  box-shadow: 5px 5px rgb(124, 130, 130);
-} */
 
 #red:hover {
   background: red;

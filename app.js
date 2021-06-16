@@ -4,8 +4,6 @@ let lightDuration = 650;
 let noteInterval = 1000;
 let audioSpeed = 1;
 
-// $("#lightDuration").push(lightDuration);
-
 const userChoice = [];
 const randomized = [];
 
@@ -22,7 +20,7 @@ const randomized = [];
 //   ],
 // };
 
-const majorPentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
+const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
 //! Functions
 //*========GENERATES RANDOM PATTERN=============
@@ -49,7 +47,7 @@ const randomizer = () => {
   });
 };
 
-//*=============USER INPUT=======================
+//*==============USER INPUT=======================
 const user = () => {
   $(".playBox").on("click", (e) => {
     userChoice.push(e.target.id);
@@ -59,7 +57,7 @@ const user = () => {
   });
 };
 
-//*==========COMPARES ARRAYS======================
+//*===========COMPARES ARRAYS======================
 const compare = (arr1, arr2) => {
   if (arr1.length === arr2.length) {
     for (let i = 0; i < arr1.length; i++) {
@@ -83,14 +81,15 @@ const reset = () => {
   return;
 };
 
+//*===============LEVEL UP====================
 const nextLevel = () => {
   score += 1;
   $("#score").text(`Current score: ${score}`);
   userChoice.splice(0, userChoice.length);
   randomized.splice(0, randomized.length);
   setTimeout(() => {
-    generator(score, majorPentatonic);
-  }, 1000);
+    generator(score, pentatonic);
+  }, 1200);
   return;
 };
 
@@ -106,7 +105,7 @@ const buttons = () => {
     $("#gameOne").toggle();
     $(".main").toggle();
     setTimeout(() => {
-      generator(score, majorPentatonic);
+      generator(score, pentatonic);
     }, 100);
   });
 
@@ -118,7 +117,7 @@ const buttons = () => {
     userChoice.splice(0, userChoice.length);
     randomized.splice(0, randomized.length);
     $("#popUp").dialog("close");
-    generator(score, majorPentatonic);
+    generator(score, pentatonic);
   });
 
   //? SETTINGS
@@ -131,12 +130,10 @@ const buttons = () => {
   });
   $("#confirm").on("click", () => {
     $(".settingsWindow").dialog("close");
-    // $("#lightDuration").push(lightDuration);
-    // $("#noteInterval").push(noteInterval);
-    $("#audioSpeed").push(audioSpeed);
-    console.log(audioSpeed);
-    console.log(noteInterval);
-    console.log(lightDuration);
+    lightDuration = $("#lightDuration").val();
+    noteInterval = $("#noteInterval").val();
+    audioSpeed = $("#audioSpeed").val();
+    // console.log(lightDuration);
   });
 
   //? BACK TO MAIN
@@ -170,7 +167,15 @@ const main = () => {
 };
 $(main);
 
-// play audio on every click (wont play if click is fast)
-// only execute user after randomizer is done (breaks the game)
-// occasionaly compares doesnt evaluate properly
-// strange behaviour with audio stop
+//? play audio on every click (wont play if click is fast)
+//? compares doesnt evaluate properly - check higher levels
+//  only execute user after randomizer is done (it breaks the game)
+//  strange behaviour with audio stop
+//  ability to change the modes
+
+// playbackRate with attr() wouldn't work. This worked:
+// var player = $('#audioPlayer');
+// player.attr('src', fileUrl);
+// player[0].playbackRate = $('#playbackRate').val();
+// The [0] important.
+// https://www.developphp.com/video/JavaScript/Audio-Play-Speed-Setting-playbackRate-Tutorial

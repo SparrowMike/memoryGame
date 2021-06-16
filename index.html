@@ -35,14 +35,25 @@
 
      <!--? SETTINGS! -->
      <div class="settingsWindow">
-        <h4>Light duration</h4>
+        <h4>Blink duration</h4>
         <input type="range" min="300" max="700" value="600" id="lightDuration">
         
-        <h4>Light interval</h4>
+        <h4>Note interval</h4>
         <input type="range" min="700" max="1500" value="1300" id="noteInterval">
         
         <h4>Audio speed</h4>
-        <input type="range" min="1" max="4" value="2" id="audioSpeed">
+        <select id="audioSpeed" value="1">
+            <option value="1">change speed</option>
+            <option value="0.5">half</option>
+            <option value="0.75">0.75</option>
+            <option value="1">normal</option>
+            <option value="1.25">1.25</option>
+            <option value="1.50">1.50</option>
+            <option value="1.75">1.75</option>
+            <option value="2">double</option>
+        </select>
+        <h4></h4>
+        <!-- <input type="range" min="1" max="4" value="2" id="audioSpeed"> -->
 
         <button id="confirm">Confirm</button>     
     </div>
