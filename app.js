@@ -43,6 +43,9 @@ const randomizer = () => {
       $(`#${item}-audio`).currentTime = 0; //*===AUDIO===
       $(`#${item}-audio`).get(0).play(); //*===AUDIO===
       $(`#${item}`).css("background", randomized[index]);
+      if (item) {
+        document.querySelector(`#${item}-audio`).playbackRate = audioSpeed;
+      }
       setTimeout(() => {
         $(`#${item}`).css("background", "");
         $(`#${item}`).css("transition", "background-color 0.6s ease");
@@ -55,20 +58,8 @@ const randomizer = () => {
 const user = () => {
   $(".playBox").on("click", (e) => {
     userChoice.push(e.target.id);
-    if (e.target.id === "red") {
-      document.querySelector("#red-audio").playbackRate = audioSpeed;
-    } else if (e.target.id === "orange") {
-      document.querySelector("#orange-audio").playbackRate = audioSpeed;
-    } else if (e.target.id === "yellow") {
-      document.querySelector("#yellow-audio").playbackRate = audioSpeed;
-    } else if (e.target.id === "green") {
-      document.querySelector("#green-audio").playbackRate = audioSpeed;
-    } else if (e.target.id === "turquoise") {
-      document.querySelector("#turquoise-audio").playbackRate = audioSpeed;
-    } else if (e.target.id === "blue") {
-      document.querySelector("#blue-audio").playbackRate = audioSpeed;
-    } else if (e.target.id === "yellow") {
-      document.querySelector("#yellow-audio").playbackRate = audioSpeed;
+    if (e.target.id) {
+      document.querySelector(`#${e.target.id}-audio`).playbackRate = audioSpeed;
     }
     $(`#${e.target.id}-audio`).stop(); //*===AUDIO===
     $(`#${e.target.id}-audio`).currentTime = 0; //*===AUDIO===
@@ -102,7 +93,7 @@ const resetArr = () => {
   randomized.splice(0, randomized.length);
 };
 
-//*===========RESET THE GAME===================
+//*===========GAME OVER===================
 const reset = () => {
   score = 1;
   resetArr();
@@ -140,6 +131,7 @@ const buttons = () => {
   $(".reset").on("click", () => {
     score = 1;
     $(".audio").stop();
+    $(".audio").currentTime = 0;
     resetArr();
     $("#popUp").dialog("close");
     generator(score, pentatonic);
@@ -198,7 +190,8 @@ $(main);
 //  strange behaviour with audio stop
 //  ability to change the modes
 //* ability to change the speed
-// print out current value of light duration, speed etc
+//  print out current value of light duration, speed etc
+//  check if arrays match before the length
 
 // playbackRate with attr() wouldn't work. This worked:
 // let audioSpeed = $("#audioPlayer");
@@ -223,3 +216,31 @@ $(main);
 // document.querySelector("audio").playbackRate = 2;
 
 // $(".audio").jPlayer("option", "playbackRate", 2);
+
+//* KEPT JUST IN CASE
+//   } else if (item === "orange") {
+//     document.querySelector("#orange-audio").playbackRate = audioSpeed;
+//   } else if (item === "yellow") {
+//     document.querySelector("#yellow-audio").playbackRate = audioSpeed;
+//   } else if (item === "green") {
+//     document.querySelector("#green-audio").playbackRate = audioSpeed;
+//   } else if (item === "turquoise") {
+//     document.querySelector("#turquoise-audio").playbackRate = audioSpeed;
+//   } else if (item === "blue") {
+//     document.querySelector("#blue-audio").playbackRate = audioSpeed;
+//   } else if (item === "yellow") {
+//     document.querySelector("#yellow-audio").playbackRate = audioSpeed;
+
+// else if (e.target.id === "orange") {
+//   document.querySelector("#orange-audio").playbackRate = audioSpeed;
+// } else if (e.target.id === "yellow") {
+//   document.querySelector("#yellow-audio").playbackRate = audioSpeed;
+// } else if (e.target.id === "green") {
+//   document.querySelector("#green-audio").playbackRate = audioSpeed;
+// } else if (e.target.id === "turquoise") {
+//   document.querySelector("#turquoise-audio").playbackRate = audioSpeed;
+// } else if (e.target.id === "blue") {
+//   document.querySelector("#blue-audio").playbackRate = audioSpeed;
+// } else if (e.target.id === "yellow") {
+//   document.querySelector("#yellow-audio").playbackRate = audioSpeed;
+// }
