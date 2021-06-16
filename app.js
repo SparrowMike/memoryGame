@@ -1,8 +1,10 @@
 let score = 1;
 
-let lightDuration = 650;
-let noteInterval = 1000;
+//? LIGHT DURATION CANNOT BE SHORTER THAN NOTE INTERVAL
+let lightDuration = 500;
+let noteInterval = 1250;
 let audioSpeed = 1;
+// let audioVolume =
 
 const userChoice = [];
 const randomized = [];
@@ -37,7 +39,9 @@ const randomizer = () => {
   randomized.forEach((item, index) => {
     setTimeout(() => {
       console.log(randomized[index]);
-      $(`#${item}-audio`).get(0).play();
+      $(`#${item}-audio`).stop(); //*===AUDIO===
+      $(`#${item}-audio`).currentTime = 0; //*===AUDIO===
+      $(`#${item}-audio`).get(0).play(); //*===AUDIO===
       $(`#${item}`).css("background", randomized[index]);
       setTimeout(() => {
         $(`#${item}`).css("background", "");
@@ -47,17 +51,36 @@ const randomizer = () => {
   });
 };
 
-//*==============USER INPUT=======================
+//*================USER INPUT=====================
 const user = () => {
   $(".playBox").on("click", (e) => {
     userChoice.push(e.target.id);
-    $(`#${e.target.id}-audio`).get(0).play();
+    if (e.target.id === "red") {
+      document.querySelector("#red-audio").playbackRate = audioSpeed;
+    } else if (e.target.id === "orange") {
+      document.querySelector("#orange-audio").playbackRate = audioSpeed;
+    } else if (e.target.id === "yellow") {
+      document.querySelector("#yellow-audio").playbackRate = audioSpeed;
+    } else if (e.target.id === "green") {
+      document.querySelector("#green-audio").playbackRate = audioSpeed;
+    } else if (e.target.id === "turquoise") {
+      document.querySelector("#turquoise-audio").playbackRate = audioSpeed;
+    } else if (e.target.id === "blue") {
+      document.querySelector("#blue-audio").playbackRate = audioSpeed;
+    } else if (e.target.id === "yellow") {
+      document.querySelector("#yellow-audio").playbackRate = audioSpeed;
+    }
+    $(`#${e.target.id}-audio`).stop(); //*===AUDIO===
+    $(`#${e.target.id}-audio`).currentTime = 0; //*===AUDIO===
+    $(`#${e.target.id}-audio`).get(0).play(); //*===AUDIO===
     console.log("clicked", e.target.id);
-    compare(userChoice, randomized);
+    setTimeout(() => {
+      compare(userChoice, randomized);
+    }, 500);
   });
 };
 
-//*===========COMPARES ARRAYS======================
+//*============COMPARES ARRAYS=====================
 const compare = (arr1, arr2) => {
   if (arr1.length === arr2.length) {
     for (let i = 0; i < arr1.length; i++) {
@@ -72,21 +95,25 @@ const compare = (arr1, arr2) => {
   }
 };
 
+//*============RESET ARRAYS====================
+const resetArr = () => {
+  $("#score").text(`Current score: ${score}`);
+  userChoice.splice(0, userChoice.length);
+  randomized.splice(0, randomized.length);
+};
+
 //*===========RESET THE GAME===================
 const reset = () => {
   score = 1;
-  userChoice.splice(0, userChoice.length);
-  randomized.splice(0, randomized.length);
+  resetArr();
   $("#popUp").dialog("open");
   return;
 };
 
-//*===============LEVEL UP====================
+//*=============LEVEL UP====================
 const nextLevel = () => {
   score += 1;
-  $("#score").text(`Current score: ${score}`);
-  userChoice.splice(0, userChoice.length);
-  randomized.splice(0, randomized.length);
+  resetArr();
   setTimeout(() => {
     generator(score, pentatonic);
   }, 1200);
@@ -95,7 +122,7 @@ const nextLevel = () => {
 
 //! BUTTONS
 const buttons = () => {
-  //? POP UP'S
+  //?==============POP UP'S====================
   $("#popUp").dialog({ autoOpen: false }, { title: "Game Over!" });
   $("#modes").dialog({ autoOpen: false }, { title: "Modes" });
 
@@ -109,24 +136,21 @@ const buttons = () => {
     }, 100);
   });
 
-  //? RESET THE GAME
+  //?=============RESET THE GAME================
   $(".reset").on("click", () => {
     score = 1;
     $(".audio").stop();
-    $("#score").text(`Current score: ${score}`);
-    userChoice.splice(0, userChoice.length);
-    randomized.splice(0, randomized.length);
+    resetArr();
     $("#popUp").dialog("close");
     generator(score, pentatonic);
   });
 
-  //? SETTINGS
+  //?================SETTINGS=====================
   $(".settingsWindow").dialog({ autoOpen: false }, { title: "Settings" });
   $(".settings").on("click", () => {
     $(".settingsWindow").dialog("open");
     score = 1;
-    userChoice.splice(0, userChoice.length);
-    randomized.splice(0, randomized.length);
+    resetArr();
   });
   $("#confirm").on("click", () => {
     $(".settingsWindow").dialog("close");
@@ -136,23 +160,23 @@ const buttons = () => {
     // console.log(lightDuration);
   });
 
-  //? BACK TO MAIN
+  //?===============AUDIO SETTINGS=============}
+
+  //?===============BACK TO MAIN===============
   $(".back").on("click", () => {
     $(".main").toggle();
     $("#gameOne").toggle();
     $(".audio").stop();
     score = 1;
-    $("#score").text(`Current score: ${score}`);
-    userChoice.splice(0, userChoice.length);
-    randomized.splice(0, randomized.length);
+    resetArr();
   });
 
-  //? MODES
+  //?==================MODE====================
   $("#modeSetting").on("click", () => {
     $("#modes").dialog("open");
   });
 
-  //? Mode Two
+  //?================Mode Two=================
   // $("#gameTwo").toggle();
   // $("#modeTwo").on("click", () => {
   //   $("#gameTwo").toggle();
@@ -167,15 +191,35 @@ const main = () => {
 };
 $(main);
 
+// TODO
 //? play audio on every click (wont play if click is fast)
 //? compares doesnt evaluate properly - check higher levels
 //  only execute user after randomizer is done (it breaks the game)
 //  strange behaviour with audio stop
 //  ability to change the modes
+//* ability to change the speed
+// print out current value of light duration, speed etc
 
 // playbackRate with attr() wouldn't work. This worked:
-// var player = $('#audioPlayer');
-// player.attr('src', fileUrl);
-// player[0].playbackRate = $('#playbackRate').val();
+// let audioSpeed = $("#audioPlayer");
+// audioSpeed.attr("src", fileUrl);
+// audioSpeed[0].playbackRate = $("#audioSpeed").val();
+// console.log(audioSpeed);
 // The [0] important.
+
 // https://www.developphp.com/video/JavaScript/Audio-Play-Speed-Setting-playbackRate-Tutorial
+
+// const audio = () => {
+//   audioSpeed = document.getElementById("audioSpeed");
+//   audioSpeed.addEventListener("change", changeSpeed);
+//   const changeSpeed = (e) => {
+//     $(".audio").playbackRate = e.target.value;
+//   };
+// };
+
+// audio();
+
+// $(".audio").playbackRate(2);
+// document.querySelector("audio").playbackRate = 2;
+
+// $(".audio").jPlayer("option", "playbackRate", 2);
