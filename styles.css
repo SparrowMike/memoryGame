@@ -6,6 +6,11 @@ body {
   height: 100vh;
   background-color: lightslategray;
   text-align: center;
+  text-shadow: 1px 1px lightpink;
+}
+
+.settingsWindow {
+  font-size: 20px;
 }
 
 #gameOne {
@@ -29,19 +34,22 @@ body {
   margin-top: 30px;
 }
 
+/* *CIRCLES* */
 .playBox {
   height: 100px;
   width: 100px;
   background-color: white;
   border: 1px solid black;
   border-radius: 50%;
-  transition: background-color 0.5s ease;
+  flex-shrink: 3;
+  /* transition: background-color 0.5s ease; */
 }
 
 button {
   background: none;
   color: #ffa260;
   border: 2px solid;
+  width: 175px;
   margin: 5px;
   padding: 1em 2em;
   font-size: 1em;
@@ -50,36 +58,46 @@ button {
 
 button:hover {
   border-color: #f1ff5c;
-  color: white;
+  color: lightcyan;
   box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
   transform: translateY(-0.25em);
   cursor: progress;
 }
 
 #red:hover {
-  background: red;
-  box-shadow: 2px 2px lightgoldenrodyellow;
+  background: #e31918;
+  box-shadow: 5px 5px lightpink;
+  transform: translateY(-0.2em);
 }
 #orange:hover {
-  background: orange;
-  box-shadow: 2px 2px lightgoldenrodyellow;
+  background: #ff7b00;
+  box-shadow: 5px 5px lightsalmon;
+  transform: translateY(-0.2em);
 }
 #yellow:hover {
-  background: yellow;
-  box-shadow: 2px 2px lightgoldenrodyellow;
+  background: #ffea00;
+  box-shadow: 5px 5px #ffffb7;
+  transform: translateY(-0.2em);
 }
+
+/*! TO DO */
 #green:hover {
   background: green;
   box-shadow: 2px 2px lightgoldenrodyellow;
 }
 #turquoise:hover {
-  background: turquoise;
-  box-shadow: 2px 2px lightgoldenrodyellow;
+  background: #80ffdb;
+  box-shadow: 5px 5px #caf0f8;
+  transform: translateY(-0.2em);
 }
+
 #blue:hover {
-  background: blue;
-  box-shadow: 2px 2px lightgoldenrodyellow;
+  background: #2176ff;
+  box-shadow: 5px 5px #48cae4;
+  transform: translateY(-0.2em);
 }
+
+/*! TO DO */
 #purple:hover {
   background: purple;
   box-shadow: 2px 2px lightgoldenrodyellow;
