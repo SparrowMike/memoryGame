@@ -1,22 +1,19 @@
-//* LIGHT DURATION CANNOT BE SHORTER THAN NOTE INTERVAL
 let audioVolume = 0.8;
 let lightDuration = 300;
 let noteInterval = 600;
 let audioSpeed = 1.5;
 let score = 1;
 
+//*===================ARRAYS====================
 const userChoice = [];
-
 const computerChoice = [];
-
-//* Mode Options
 const motivation = [
   "Great Job!",
   "Well Played!",
   "Amazing!",
   "Keep Going!",
   "Keep It Up!",
-  "Awesome",
+  "Awesome!",
 ];
 const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
@@ -189,6 +186,7 @@ const buttons = () => {
     audioVolume = $("#volume").val();
     score = $("#scoreInput").val();
   };
+
   //?===================ABOUT=======================
   $(".aboutWindow").dialog({ autoOpen: false }, { title: "About" });
   $(".about").on("click", () => {
@@ -202,16 +200,3 @@ const main = () => {
   user();
 };
 $(main);
-
-// TODO MUST HAVE
-// reset the setTimeout - affecting audio and not allowing the reset to execute - walkaround location.reload()
-
-// TODO SHOULD HAVE
-// new favicon
-
-// TODO NICE TO HAVE
-//* SETTINGS - print out current value of light duration, speed etc
-//* ability to change the instrument
-//* ability to change the modes!
-// BPM!!!
-// Say well done, etc when player gets the note
