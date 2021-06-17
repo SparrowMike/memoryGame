@@ -14,6 +14,7 @@ const motivation = [
   "Keep Going!",
   "Keep It Up!",
   "Awesome!",
+  "WOW!!!",
 ];
 const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
@@ -106,9 +107,15 @@ const reset = () => {
 const keepUp = () => {
   let randomMot = motivation[Math.floor(Math.random() * motivation.length)];
   $(".middle").text(randomMot);
+  $(".motivation").css({
+    opacity: 0.7,
+    transition: "background-color 0.8s ease",
+    "box-shadow": "0 0.5em 0.5em -0.4em #dcd9cf",
+  });
   setTimeout(() => {
-    $(".middle").text(`Current score: ${score}`);
-  }, 1000);
+    $(".middle").text("Press to play again!");
+    $(".motivation").removeAttr("style");
+  }, 750);
 };
 
 //*=============LEVEL UP====================

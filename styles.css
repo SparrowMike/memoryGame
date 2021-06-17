@@ -1,5 +1,8 @@
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  overflow: hidden;
+  animation-delay: 1s;
   height: 100vh;
   background-color: lightslategray;
   text-align: center;
@@ -7,6 +10,7 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80);
   background-size: cover;
+  animation: rattle 0.2s;
 }
 
 /*! MAIN WINDOW! !*/
@@ -182,11 +186,78 @@ button:hover {
   cursor: pointer;
 }
 
-/* !SPARE! */
-/* .back:hover:nth-child(10) {
-  background: white;
-  box-shadow: 5px 5px #48cae4;
-  opacity: 1;
-  border: 2px solid black;
-  transition: background-color 0.5s ease;
-} */
+/*! LOGO ANIMATION !*/
+.slam {
+  animation: slam 0.7s;
+  animation-timing-function: ease-in;
+  color: #c41818;
+  display: block;
+  font-size: 50px;
+  font-weight: 900;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@keyframes slam {
+  0% {
+    transform: scale(10, 10);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes rattle {
+  0% {
+    margin-top: 0;
+    margin-left: 0;
+  }
+  10% {
+    margin-top: -5px;
+    margin-left: 0;
+  }
+  20% {
+    margin-top: 0;
+    margin-left: -5px;
+  }
+  30% {
+    margin-top: 5px;
+    margin-left: 0;
+  }
+  40% {
+    margin-top: 0;
+    margin-left: 5px;
+  }
+  50% {
+    margin-top: -2px;
+    margin-left: 0;
+  }
+  60% {
+    margin-top: 0;
+    margin-left: -2px;
+  }
+  70% {
+    margin-top: 2px;
+    margin-left: 0;
+  }
+  80% {
+    margin-top: 0;
+    margin-left: 2px;
+  }
+  90% {
+    margin-top: -1px;
+    margin-left: 0;
+  }
+  100% {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
