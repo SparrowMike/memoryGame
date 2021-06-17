@@ -3,7 +3,7 @@ body {
   height: 100vh;
   background-color: lightslategray;
   text-align: center;
-  /* text-shadow: 1px 1px lightpink; */
+  text-shadow: 0.5px 0.5px lightpink;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80);
   background-size: cover;
@@ -23,12 +23,7 @@ body {
 
 /*! GAME WINDOW !*/
 #gameOne {
-  /* border-radius: 10px; */
   padding: 50px;
-  /* opacity: 0.9; */
-  /* justify-content: space-around; */
-  /* display: flex; */
-  /* margin-top: 30px; */
 }
 
 .circle {
@@ -76,25 +71,25 @@ body {
 /* *BACK BUTTON* */
 .circle:nth-child(7) {
   transform: rotate(0deg) translateX(105px) translateY(-200px);
-  background-color: #272640;
+  background-color: #232323;
 }
 /* *RESET BUTTON* */
 .circle:nth-child(8) {
   transform: rotate(0deg) translateX(-105px) translateY(-200px);
-  background-color: #272640;
+  background-color: #232323;
 }
 /* *SCORE* */
 .circle:nth-child(9) {
-  width: 150px;
-  transform: rotate(0deg) translateX(-25px) translateY(-258px);
-  background-color: #272640;
+  width: 130px;
+  transform: rotate(0deg) translateX(-15px) translateY(-258px);
+  background-color: #232323;
   opacity: 0.7;
 }
 
 /* *Panic* */
 .circle:nth-child(10) {
   transform: rotate(0deg) translateX(0) translateY(215px);
-  background-color: #272640;
+  background-color: #232323;
 }
 
 /* !PLAY ME CIRCLE! */
@@ -155,14 +150,6 @@ h5 {
   box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
   transform: translateY(-0.25em);
 }
-/* score */
-.back:hover:nth-child(10) {
-  background: white;
-  box-shadow: 5px 5px #48cae4;
-  opacity: 1;
-  border: 2px solid black;
-  transition: background-color 0.5s ease;
-}
 
 /* GLOBAL CIRCLE */
 .circle:hover {
@@ -194,3 +181,12 @@ button:hover {
   transform: translateY(-0.25em);
   cursor: pointer;
 }
+
+/* !SPARE! */
+/* .back:hover:nth-child(10) {
+  background: white;
+  box-shadow: 5px 5px #48cae4;
+  opacity: 1;
+  border: 2px solid black;
+  transition: background-color 0.5s ease;
+} */

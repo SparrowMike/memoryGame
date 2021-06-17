@@ -9,9 +9,15 @@ const userChoice = [];
 
 const computerChoice = [];
 
-const motivation = ["Great Job!", "Well Played!", "Amazing!", "Keep Going!"];
-let randomMot = motivation[Math.floor(Math.random() * motivation.length)];
 //* Mode Options
+const motivation = [
+  "Great Job!",
+  "Well Played!",
+  "Amazing!",
+  "Keep Going!",
+  "Keep It Up!",
+  "Awesome",
+];
 const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
 //! Functions
@@ -75,7 +81,6 @@ const user = () => {
 //*============COMPARES ARRAYS=====================
 const compare = (arr1, arr2) => {
   if (arr1.toString() === arr2.toString()) {
-    $(".middle").append(randomMot);
     nextLevel();
     return;
   } else {
@@ -99,9 +104,15 @@ const reset = () => {
   return;
 };
 
+//*=============MOTIVATION===================
+const keepUp = () => {
+  let randomMot = motivation[Math.floor(Math.random() * motivation.length)];
+  $(".motivation h5").text(randomMot);
+  $(".middle").append(randomMot);
+};
+
 //*=============LEVEL UP====================
 const nextLevel = () => {
-  $(".motivation h5").text("awesome!");
   score++;
   resetArr();
   setTimeout(() => {
@@ -140,11 +151,11 @@ const buttons = () => {
   $(".back").on("click", () => {
     $(".main").toggle();
     $("#gameOne").toggle();
+    resetArr();
     document.querySelector(".audio").pause();
     document.querySelector(".audio").currentTime = 0;
     clearTimeout(generatorAudioVisual());
     score = 1;
-    resetArr();
   });
 
   //?================PANIC!!!!==================
@@ -196,6 +207,7 @@ $(main);
 // reset the setTimeout - affecting audio and not allowing the reset to execute - walkaround location.reload()
 
 // TODO SHOULD HAVE
+// new favicon
 
 // TODO NICE TO HAVE
 //* SETTINGS - print out current value of light duration, speed etc
