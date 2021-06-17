@@ -79,6 +79,7 @@ const user = () => {
 const compare = (arr1, arr2) => {
   if (arr1.toString() === arr2.toString()) {
     nextLevel();
+    keepUp();
     return;
   } else {
     reset();
@@ -104,8 +105,10 @@ const reset = () => {
 //*=============MOTIVATION===================
 const keepUp = () => {
   let randomMot = motivation[Math.floor(Math.random() * motivation.length)];
-  $(".motivation h5").text(randomMot);
-  $(".middle").append(randomMot);
+  $(".middle").text(randomMot);
+  setTimeout(() => {
+    $(".middle").text(`Current score: ${score}`);
+  }, 1000);
 };
 
 //*=============LEVEL UP====================
