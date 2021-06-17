@@ -21,10 +21,6 @@ body {
   margin: 100px;
 }
 
-/*! GAME OVER POPUP !*/
-
-/*! SETTINGS !*/
-
 /*! GAME WINDOW !*/
 #gameOne {
   padding: 50px;
@@ -86,7 +82,7 @@ body {
 .circle:nth-child(9) {
   width: 130px;
   transform: rotate(0deg) translateX(-15px) translateY(-258px);
-  background-color: #232323;
+  background-color: #343434;
   opacity: 0.7;
 }
 
@@ -102,7 +98,7 @@ h5 {
   text-decoration: blanchedalmond;
   position: absolute;
   color: white;
-  top: 22%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
@@ -111,7 +107,7 @@ h5 {
   font-size: 20px;
   text-decoration: blanchedalmond;
   position: absolute;
-  top: 22%;
+  top: 28%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
@@ -156,7 +152,7 @@ h5 {
 }
 
 /* GLOBAL CIRCLE */
-.circle:hover {
+.game:hover {
   opacity: 1;
   border: 2px solid black;
   transition: background-color 0.5s ease;
@@ -186,7 +182,7 @@ button:hover {
   cursor: pointer;
 }
 
-/*! LOGO ANIMATION !*/
+/*! HEADER ANIMATION !*/
 .slam {
   animation: slam 0.7s;
   animation-timing-function: ease-in;
