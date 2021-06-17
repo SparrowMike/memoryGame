@@ -10,8 +10,7 @@ const userChoice = [];
 const computerChoice = [];
 
 const motivation = ["Great Job!", "Well Played!", "Amazing!", "Keep Going!"];
-randomMot = motivation[Math.random(Math.floor() * motivation.length)];
-
+let randomMot = motivation[Math.floor(Math.random() * motivation.length)];
 //* Mode Options
 const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
@@ -76,6 +75,7 @@ const user = () => {
 //*============COMPARES ARRAYS=====================
 const compare = (arr1, arr2) => {
   if (arr1.toString() === arr2.toString()) {
+    $(".middle").append(randomMot);
     nextLevel();
     return;
   } else {
@@ -193,7 +193,7 @@ const main = () => {
 $(main);
 
 // TODO MUST HAVE
-// reset the setTimeout - affecting audio and not allowing the reset to execute
+// reset the setTimeout - affecting audio and not allowing the reset to execute - walkaround location.reload()
 
 // TODO SHOULD HAVE
 
