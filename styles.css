@@ -7,22 +7,12 @@ body {
   background-color: lightslategray;
   text-align: center;
   text-shadow: 1px 1px lightpink;
-  /* background-imagxe: url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80); */
+  background-image: ;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80);
 }
 
-.settingsWindow {
-  font-size: 20px;
-}
-
-#gameOne {
-  border: 5px solid wheat;
-  border-radius: 10px;
-  margin: 100px;
-  padding: 50px;
-  /* background-color: blue; */
-  opacity: 0.9;
-}
-
+/*! MAIN WINDOW! !*/
 .main {
   display: inline-block;
   justify-content: center;
@@ -31,86 +21,23 @@ body {
   /* border: 5px solid wheat; */
 }
 
-.gameContainer {
+/*! GAME OVER POPUP !*/
+
+/*! SETTINGS !*/
+
+/*! GAME WINDOW !*/
+#gameOne {
+  border: 5px solid wheat;
+  border-radius: 10px;
+  margin: 100px;
+  padding: 50px;
+  /* background-color: blue; */
+  opacity: 0.9;
   justify-content: space-around;
   display: flex;
   margin-top: 30px;
 }
 
-/* *CIRCLES* */
-/* .playBox {
-  height: 100px;
-  width: 100px;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 50%;
-  flex-shrink: 3;
-  transition: background-color 0.5s ease;
-} */
-
-button {
-  background: none;
-  color: #ffa260;
-  border: 2px solid;
-  width: 175px;
-  margin: 5px;
-  padding: 1em 2em;
-  font-size: 1em;
-  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-  border-radius: 20px;
-}
-footer {
-  margin-top: auto;
-}
-
-/* button:hover {
-  border-color: #f1ff5c;
-  color: lightcyan;
-  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
-  transform: translateY(-0.25em);
-  cursor: progress;
-}
-
-#red:hover {
-  background: #e31918;
-  box-shadow: 5px 5px lightpink;
-  transform: translateY(-0.2em);
-}
-#orange:hover {
-  background: #ff7b00;
-  box-shadow: 5px 5px lightsalmon;
-  transform: translateY(-0.2em);
-}
-#yellow:hover {
-  background: #ffea00;
-  box-shadow: 5px 5px #ffffb7;
-  transform: translateY(-0.2em);
-} */
-
-/*! TO DO */
-/* #green:hover {
-  background: green;
-  box-shadow: 2px 2px lightgoldenrodyellow;
-}
-#turquoise:hover {
-  background: #80ffdb;
-  box-shadow: 5px 5px #caf0f8;
-  transform: translateY(-0.2em);
-}
-
-#blue:hover {
-  background: #2176ff;
-  box-shadow: 5px 5px #48cae4;
-  transform: translateY(-0.2em);
-} */
-
-/*! TO DO */
-#purple:hover {
-  background: purple;
-  box-shadow: 2px 2px lightgoldenrodyellow;
-}
-
-/* !DIAL PHONE! */
 .circle {
   position: absolute;
   /* display: flex; */
@@ -152,35 +79,73 @@ footer {
   width: 145px;
   transform: rotate(0) translateX(-23px) translateY(-23px);
   background-color: whitesmoke;
-  text-align: center;
 }
 
-#red:hover {
-  transform: rotate(270deg) translateX(125px);
-  background-color: red;
+/* !PLAY ME CIRCLE! */
+h5 {
+  font-size: 20px;
+  text-decoration: blanchedalmond;
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#red:hover:nth-child(1) {
   background: #e31918;
   box-shadow: 5px 5px lightpink;
-  transform: translateY(-0.2em);
 }
-#orange:hover {
+#orange:hover:nth-child(2) {
   background: #ff7b00;
   box-shadow: 5px 5px lightsalmon;
-  transform: translateY(-0.2em);
 }
-#yellow:hover {
+#yellow:hover:nth-child(3) {
   background: #ffea00;
   box-shadow: 5px 5px #ffffb7;
-  transform: translateY(-0.2em);
 }
 
-#turquoise:hover {
+#turquoise:hover:nth-child(4) {
   background: #80ffdb;
   box-shadow: 5px 5px #caf0f8;
-  transform: translateY(-0.2em);
 }
 
-#blue:hover {
-  background: #2176ff;
+#blue:hover:nth-child(5) {
+  background: #072ac8;
   box-shadow: 5px 5px #48cae4;
-  transform: translateY(-0.2em);
 }
+.middle:hover:nth-child(6) {
+  background: #f8f9fa;
+  box-shadow: 2px 2px #f8f9fa;
+}
+
+/* GLOBAL CIRCLE */
+.playBox:hover {
+  opacity: 1;
+  border: 2px solid black;
+  transition: background-color 0.5s ease;
+}
+
+/*! BUTTONS! !*/
+button {
+  background: none;
+  color: #ffa260;
+  border: 2px solid;
+  width: 175px;
+  margin: 5px;
+  padding: 1em 2em;
+  font-size: 1em;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  border-radius: 20px;
+}
+
+button:hover {
+  border-color: #f1ff5c;
+  color: lightcyan;
+  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  transform: translateY(-0.25em);
+  cursor: progress;
+}
+
+/* .settingsWindow {
+  font-size: 20px;
+} */

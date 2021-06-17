@@ -45,17 +45,17 @@ const generatorAudioVisual = () => {
       document.querySelector(`#${item}-audio`).currentTime = 0;
       $(`#${item}-audio`).get(0).play();
 
-      console.log("computer", computerChoice[index]);
-
       //*======================VISUAL======================
       $(`#${item}`).css({
-        background: `${[item]}`,
+        opacity: 1,
+        background: item,
+        // transform: "translateY(-0.2em)",
         transition: "background-color 0.3s ease",
       });
+      console.log(`#${item}`);
+
       setTimeout(() => {
-        $(`#${item}`).css({
-          background: "",
-        });
+        $(`#${item}`).removeAttr("style");
       }, lightDuration);
     }, noteInterval * index);
   });
@@ -64,24 +64,19 @@ const generatorAudioVisual = () => {
 //*================USER INPUT=====================
 const user = () => {
   $(".playBox").on("click", (e) => {
-    userChoice.push(e.target.id);
     if (e.target.id) {
-      document.querySelector(`#${e.target.id}-audio`).playbackRate = audioSpeed;
+      userChoice.push(e.target.id);
+      console.log("clicked", e.target.id);
       document.querySelector(`#${e.target.id}-audio`).volume = audioVolume;
-    }
-    document.querySelector(`#${e.target.id}-audio`).pause();
-    document.querySelector(`#${e.target.id}-audio`).currentTime = 0;
-    $(`#${e.target.id}-audio`).get(0).play();
-
-    // console.log("clicked", e.target.id);
-    // console.log("user", userChoice);
-    // console.log("computer", computerChoice);
-
-    setTimeout(() => {
+      document.querySelector(`#${e.target.id}-audio`).playbackRate = audioSpeed;
+      document.querySelector(`#${e.target.id}-audio`).pause();
+      document.querySelector(`#${e.target.id}-audio`).currentTime = 0;
+      $(`#${e.target.id}-audio`).get(0).play();
+      console.log("user clicked", e.target.id);
       if (userChoice.length === computerChoice.length) {
         compare(userChoice, computerChoice);
       }
-    }, 150);
+    }
   });
 };
 
@@ -94,6 +89,8 @@ const compare = (arr1, arr2) => {
   //     reset();
   //     return;
   //   }
+  console.log("user", userChoice);
+  console.log("computer", computerChoice);
 
   //! OR !\\ more testing !
   if (arr1.toString() === arr2.toString()) {
@@ -122,6 +119,7 @@ const reset = () => {
 
 //*=============LEVEL UP====================
 const nextLevel = () => {
+  $(".motivation h5").text("awesome!");
   score++;
   resetArr();
   setTimeout(() => {
@@ -162,7 +160,7 @@ const buttons = () => {
     $("#gameOne").toggle();
     document.querySelector(".audio").pause();
     document.querySelector(".audio").currentTime = 0;
-    // clearTimeout(generatorAudioVisual); //! HOWTO CLEAR TIMEOUT!!
+    clearTimeout(generatorAudioVisual());
     score = 1;
     resetArr();
   });
@@ -192,7 +190,6 @@ const buttons = () => {
     audioSpeed = $("#audioSpeed").val();
     audioVolume = $("#volume").val();
     score = $("#scoreInput").val();
-    //! ADJUSTED SCORE SETTINGS SEEN AS STRING? - FIXED WITH score++ INSTEAD OF score+=1
   };
 
   //?================Mode Two=================
