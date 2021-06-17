@@ -7,6 +7,7 @@ body {
   background-color: lightslategray;
   text-align: center;
   text-shadow: 1px 1px lightpink;
+  /* background-imagxe: url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80); */
 }
 
 .settingsWindow {
@@ -18,6 +19,8 @@ body {
   border-radius: 10px;
   margin: 100px;
   padding: 50px;
+  /* background-color: blue; */
+  opacity: 0.9;
 }
 
 .main {
@@ -35,15 +38,15 @@ body {
 }
 
 /* *CIRCLES* */
-.playBox {
+/* .playBox {
   height: 100px;
   width: 100px;
   background-color: white;
   border: 1px solid black;
   border-radius: 50%;
   flex-shrink: 3;
-  /* transition: background-color 0.5s ease; */
-}
+  transition: background-color 0.5s ease;
+} */
 
 button {
   background: none;
@@ -54,9 +57,13 @@ button {
   padding: 1em 2em;
   font-size: 1em;
   transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  border-radius: 20px;
+}
+footer {
+  margin-top: auto;
 }
 
-button:hover {
+/* button:hover {
   border-color: #f1ff5c;
   color: lightcyan;
   box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
@@ -78,10 +85,10 @@ button:hover {
   background: #ffea00;
   box-shadow: 5px 5px #ffffb7;
   transform: translateY(-0.2em);
-}
+} */
 
 /*! TO DO */
-#green:hover {
+/* #green:hover {
   background: green;
   box-shadow: 2px 2px lightgoldenrodyellow;
 }
@@ -95,10 +102,85 @@ button:hover {
   background: #2176ff;
   box-shadow: 5px 5px #48cae4;
   transform: translateY(-0.2em);
-}
+} */
 
 /*! TO DO */
 #purple:hover {
   background: purple;
   box-shadow: 2px 2px lightgoldenrodyellow;
+}
+
+/* !DIAL PHONE! */
+.circle {
+  position: absolute;
+  /* display: flex; */
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  height: 100px;
+  width: 100px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.circle:nth-child(1) {
+  transform: rotate(270deg) translateX(125px);
+  background-color: red;
+}
+
+.circle:nth-child(2) {
+  transform: rotate(345deg) translateX(125px);
+  background-color: orange;
+}
+
+.circle:nth-child(3) {
+  transform: rotate(60deg) translateX(125px);
+  background-color: yellow;
+}
+
+.circle:nth-child(4) {
+  transform: rotate(120deg) translateX(125px);
+  background-color: turquoise;
+}
+
+.circle:nth-child(5) {
+  transform: rotate(195deg) translateX(125px);
+  background-color: blue;
+}
+.circle:nth-child(6) {
+  height: 145px;
+  width: 145px;
+  transform: rotate(0) translateX(-23px) translateY(-23px);
+  background-color: whitesmoke;
+  text-align: center;
+}
+
+#red:hover {
+  transform: rotate(270deg) translateX(125px);
+  background-color: red;
+  background: #e31918;
+  box-shadow: 5px 5px lightpink;
+  transform: translateY(-0.2em);
+}
+#orange:hover {
+  background: #ff7b00;
+  box-shadow: 5px 5px lightsalmon;
+  transform: translateY(-0.2em);
+}
+#yellow:hover {
+  background: #ffea00;
+  box-shadow: 5px 5px #ffffb7;
+  transform: translateY(-0.2em);
+}
+
+#turquoise:hover {
+  background: #80ffdb;
+  box-shadow: 5px 5px #caf0f8;
+  transform: translateY(-0.2em);
+}
+
+#blue:hover {
+  background: #2176ff;
+  box-shadow: 5px 5px #48cae4;
+  transform: translateY(-0.2em);
 }

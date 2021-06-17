@@ -19,6 +19,7 @@
         <button id="modeOne">Game on!</button>
         <!-- <button id="modeSetting">Modes</button> -->
         <button class="settings">Settings</button>
+        <button class="about">About</button>
     </div> 
     
      <!--? GAME OVER POPUP! -->
@@ -27,32 +28,24 @@
          <button class="reset">Reset</button>
      </div>
 
-     <!--? MODES -->
-     <!-- <div id="modes">
-         <button>Major Pentatonic</button>
-         <button>Minor Pentatonic</button>
-         <button>Major Scale</button>
-         <button>Minor Scale</button>
-     </div> -->
-
      <!--? SETTINGS! -->
      <div class="settingsWindow">
         Volume    :
         <input type="range" min="0" max="1" value=".80" step="0.20" id="volume">
           <hr>
         Blink duration
-        <input type="range" min="150" max="700" value="500" step="50" id="lightDuration">
+        <input type="range" min="150" max="550" value="300" step="50" id="lightDuration">
           <hr>
         Note interval
-        <input type="range" min="800" max="1500" value="800" step="100" id="noteInterval">
+        <input type="range" min="500" max="1500" value="600" step="100" id="noteInterval">
           <hr>
         Audio speed
-        <input type="range" min="0.5" max="7" value="2" step="0.25" id="audioSpeed">
+        <input type="range" min="0.5" max="7" value="1.5" step="0.25" id="audioSpeed">
           <hr>
           
         <label>
-            Score:
-            <input type="number" placeholder="num" name="number" min="1" max="10" id="scoreInput">
+            Jump to Score:
+            <input type="number" placeholder="num" name="number" min="1" max="10" value="1" id="scoreInput">
         </label>
         <hr>
 
@@ -75,23 +68,35 @@
         <!-- <button class="settings">Settings</button> -->
 
         <div class="gameContainer"> 
-            <div class="playBox" id="red">
+            <div class="playBox circle" id="red">
                 <audio volume="2" class="audio" id="red-audio" src="/Sounds/RedC-4.mp3" allow="muted" preload="none"></audio>
             </div>
-            <div class="playBox" id="orange">
+            <div class="playBox circle" id="orange">
                 <audio class="audio" id="orange-audio" src="/Sounds/OrangeD-4.mp3" allow="muted"></audio>
             </div>
-            <div class="playBox" id="yellow">
+            <div class="playBox circle" id="yellow">
                 <audio class="audio" id="yellow-audio" src="/Sounds/YellowE4.mp3" allow="muted"></audio>
             </div>
-            <div class="playBox" id="turquoise">
+            <div class="playBox circle" id="turquoise">
                 <audio class="audio" id="turquoise-audio" src="/Sounds/TurquoiseG-4.mp3" allow="muted"></audio>
             </div>
-            <div class="playBox" id="blue">
+            <div class="playBox circle" id="blue">
                 <audio class="audio" id="blue-audio" src="/Sounds/BlueB-5.mp3" allow="muted"></audio>
             </div>
+            <div class="circle">
+                <p>Yo!</p>
+            </div>
         </div>
+
     </div>
+    <!-- !THREE!
+        <div class="gameContainer">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div> -->
         
     <!-- <div id="gameTwo">
         <h3 id="score">Current score: 1</h3>
@@ -108,10 +113,7 @@
     </div> -->
     
 
-
-
-
-
+ <!-- <footer>®Simonous</footer> -->
 
     
     <script src="app.js"></script>

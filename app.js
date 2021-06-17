@@ -1,15 +1,13 @@
 //* LIGHT DURATION CANNOT BE SHORTER THAN NOTE INTERVAL
-let score = 1;
-let lightDuration = 500;
+let audioVolume = 0.8;
+let lightDuration = 300;
 let noteInterval = 600;
 let audioSpeed = 1.5;
-let audioVolume = 0.8;
+let score = 1;
 
 const userChoice = [];
 
 const computerChoice = [];
-// const computerBackgroundArr = [];
-// const computerShadowArr = [];
 
 //* Mode Options
 const majorScale = [
@@ -21,20 +19,7 @@ const majorScale = [
   "blue",
   "purple",
 ];
-// const pentatonicBackground = [
-//   "#e31918",
-//   "#ff7b00",
-//   "#ffea00",
-//   "#80ffdb",
-//   "#2176ff",
-// ];
-// const pentatonicShadow = [
-//   "lightpink",
-//   "lightsalmon",
-//   "#ffffb7",
-//   "#caf0f8",
-//   "#48cae4",
-// ];
+
 const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
 //! Functions
@@ -43,8 +28,6 @@ const generator = (score, mode) => {
   for (let i = 1; i <= score; i++) {
     let random = Math.floor(Math.random() * mode.length);
     computerChoice.push(mode[random]);
-    // computerBackgroundArr.push(pentatonicBackground[random]); //TODO pentatonicBackground
-    // computerShadowArr.push(computerShadowArr[random]); //TODO petatonicShadow
   }
   generatorAudioVisual();
 };
@@ -61,6 +44,7 @@ const generatorAudioVisual = () => {
       document.querySelector(`#${item}-audio`).pause();
       document.querySelector(`#${item}-audio`).currentTime = 0;
       $(`#${item}-audio`).get(0).play();
+
       console.log("computer", computerChoice[index]);
 
       //*======================VISUAL======================
@@ -87,13 +71,12 @@ const user = () => {
     }
     document.querySelector(`#${e.target.id}-audio`).pause();
     document.querySelector(`#${e.target.id}-audio`).currentTime = 0;
+    $(`#${e.target.id}-audio`).get(0).play();
 
-    $(`#${e.target.id}-audio`).get(0).play(); //*===AUDIO===
+    // console.log("clicked", e.target.id);
+    // console.log("user", userChoice);
+    // console.log("computer", computerChoice);
 
-    console.log("clicked", e.target.id);
-
-    console.log("user", userChoice);
-    console.log("computer", computerChoice);
     setTimeout(() => {
       if (userChoice.length === computerChoice.length) {
         compare(userChoice, computerChoice);
@@ -104,7 +87,16 @@ const user = () => {
 
 //*============COMPARES ARRAYS=====================
 const compare = (arr1, arr2) => {
-  if (JSON.stringify(arr1) === JSON.stringify(arr2)) {
+  //   if (JSON.stringify(arr1) === JSON.stringify(arr2)) {
+  //     nextLevel();
+  //     return;
+  //   } else {
+  //     reset();
+  //     return;
+  //   }
+
+  //! OR !\\ more testing !
+  if (arr1.toString() === arr2.toString()) {
     nextLevel();
     return;
   } else {
@@ -113,15 +105,14 @@ const compare = (arr1, arr2) => {
   }
 };
 
-//*============RESET ARRAYS====================
+//*==============RESET ARRAYS====================
 const resetArr = () => {
   $("#score").text(`Current score: ${score}`);
   userChoice.splice(0, userChoice.length);
   computerChoice.splice(0, computerChoice.length);
-  //   computerBackgroundArr.splice(0, computerBackgroundArr.length);
 };
 
-//*=============GAME OVER===================
+//*===============GAME OVER===================
 const reset = () => {
   score = 1;
   resetArr();
@@ -160,8 +151,6 @@ const buttons = () => {
     score = 1;
     document.querySelector(".audio").pause();
     document.querySelector(".audio").currentTime = 0;
-    // $(".audio").stop();
-    // $(".audio").currentTime = 0;
     resetArr();
     $("#popUp").dialog("close");
     generator(score, pentatonic);
@@ -192,8 +181,8 @@ const buttons = () => {
   });
   $("#confirm").on("click", () => {
     $(".settingsWindow").dialog("close");
-    settingsValue();
     $("#score").text(`Current score: ${score}`);
+    settingsValue();
     resetArr();
   });
 
@@ -203,13 +192,8 @@ const buttons = () => {
     audioSpeed = $("#audioSpeed").val();
     audioVolume = $("#volume").val();
     score = $("#scoreInput").val();
-    // parseInt(score); //! ADJUSTED SETTINGS SEEN AS STRING? - FIXED WITH score++ INSTEAD OF score+=1
+    //! ADJUSTED SCORE SETTINGS SEEN AS STRING? - FIXED WITH score++ INSTEAD OF score+=1
   };
-
-  //!==================MODE==================== CURRENTLY DISABLED ON HTML
-  //   $("#modeSetting").on("click", () => {
-  //     $("#modes").dialog("open");
-  //   });
 
   //?================Mode Two=================
   // $("#gameTwo").toggle();
@@ -227,16 +211,14 @@ const main = () => {
 $(main);
 
 // TODO MUST HAVE
-//! AS LONG AS FIRST NOTE IS SAME IF WILL ASSUME ALL ARE SAME AFTER?
-// only execute user after generatorAudioVisual is done ???? (it breaks the game)
-// reset the setTimeout - affecting audio
-// check if arrays match before the length
+// reset the setTimeout - affecting audio and not allowing the reset to execute
 
 // TODO SHOULD HAVE
-// NICE STYLING DIAL PHONE TYPE?
+// NICE STYLING DIAL PHONE TYPE
 
 // TODO NICE TO HAVE
-// fix shadows etc in generatorAudioVisual
-//* ability to change the modes!
-//* ability to change the instrument
+// fix shadows etc in generatorAudioVisual...
 //* SETTINGS - print out current value of light duration, speed etc
+//* ability to change the instrument
+//* ability to change the modes!
+// BPM!!!
