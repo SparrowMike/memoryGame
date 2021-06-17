@@ -9,17 +9,10 @@ const userChoice = [];
 
 const computerChoice = [];
 
-//* Mode Options
-const majorScale = [
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "turquoise",
-  "blue",
-  "purple",
-];
+const motivation = ["Great Job!", "Well Played!", "Amazing!", "Keep Going!"];
+randomMot = motivation[Math.random(Math.floor() * motivation.length)];
 
+//* Mode Options
 const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
 //! Functions
@@ -49,8 +42,8 @@ const generatorAudioVisual = () => {
       $(`#${item}`).css({
         opacity: 1,
         background: item,
-        // transform: "translateY(-0.2em)",
         transition: "background-color 0.3s ease",
+        "box-shadow": "0 0.5em 0.5em -0.4em #dcd9cf",
       });
       console.log(`#${item}`);
 
@@ -63,7 +56,7 @@ const generatorAudioVisual = () => {
 
 //*================USER INPUT=====================
 const user = () => {
-  $(".playBox").on("click", (e) => {
+  $(".game").on("click", (e) => {
     if (e.target.id) {
       userChoice.push(e.target.id);
       console.log("clicked", e.target.id);
@@ -82,17 +75,6 @@ const user = () => {
 
 //*============COMPARES ARRAYS=====================
 const compare = (arr1, arr2) => {
-  //   if (JSON.stringify(arr1) === JSON.stringify(arr2)) {
-  //     nextLevel();
-  //     return;
-  //   } else {
-  //     reset();
-  //     return;
-  //   }
-  console.log("user", userChoice);
-  console.log("computer", computerChoice);
-
-  //! OR !\\ more testing !
   if (arr1.toString() === arr2.toString()) {
     nextLevel();
     return;
@@ -165,6 +147,11 @@ const buttons = () => {
     resetArr();
   });
 
+  //?================PANIC!!!!==================
+  $(".panic").on("click", () => {
+    location.reload();
+  });
+
   //?============REPEAT THE PATTERN===============
   $(".playAgain").on("click", () => {
     generatorAudioVisual();
@@ -191,13 +178,11 @@ const buttons = () => {
     audioVolume = $("#volume").val();
     score = $("#scoreInput").val();
   };
-
-  //?================Mode Two=================
-  // $("#gameTwo").toggle();
-  // $("#modeTwo").on("click", () => {
-  //   $("#gameTwo").toggle();
-  //   $(".main").toggle();
-  // });
+  //?===================ABOUT=======================
+  $(".aboutWindow").dialog({ autoOpen: false }, { title: "About" });
+  $(".about").on("click", () => {
+    $(".aboutWindow").dialog("open");
+  });
 };
 
 //*===================MAIN========================
@@ -211,11 +196,10 @@ $(main);
 // reset the setTimeout - affecting audio and not allowing the reset to execute
 
 // TODO SHOULD HAVE
-// NICE STYLING DIAL PHONE TYPE
 
 // TODO NICE TO HAVE
-// fix shadows etc in generatorAudioVisual...
 //* SETTINGS - print out current value of light duration, speed etc
 //* ability to change the instrument
 //* ability to change the modes!
 // BPM!!!
+// Say well done, etc when player gets the note

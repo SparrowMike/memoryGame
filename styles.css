@@ -1,15 +1,12 @@
 body {
   font-family: "Roboto", sans-serif;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   height: 100vh;
   background-color: lightslategray;
   text-align: center;
-  text-shadow: 1px 1px lightpink;
-  background-image: ;
+  /* text-shadow: 1px 1px lightpink; */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80);
+  background-size: cover;
 }
 
 /*! MAIN WINDOW! !*/
@@ -18,7 +15,6 @@ body {
   justify-content: center;
   border: 100px;
   margin: 100px;
-  /* border: 5px solid wheat; */
 }
 
 /*! GAME OVER POPUP !*/
@@ -27,15 +23,12 @@ body {
 
 /*! GAME WINDOW !*/
 #gameOne {
-  border: 5px solid wheat;
-  border-radius: 10px;
-  margin: 100px;
+  /* border-radius: 10px; */
   padding: 50px;
-  /* background-color: blue; */
-  opacity: 0.9;
-  justify-content: space-around;
-  display: flex;
-  margin-top: 30px;
+  /* opacity: 0.9; */
+  /* justify-content: space-around; */
+  /* display: flex; */
+  /* margin-top: 30px; */
 }
 
 .circle {
@@ -80,9 +73,42 @@ body {
   transform: rotate(0) translateX(-23px) translateY(-23px);
   background-color: whitesmoke;
 }
+/* *BACK BUTTON* */
+.circle:nth-child(7) {
+  transform: rotate(0deg) translateX(105px) translateY(-200px);
+  background-color: #272640;
+}
+/* *RESET BUTTON* */
+.circle:nth-child(8) {
+  transform: rotate(0deg) translateX(-105px) translateY(-200px);
+  background-color: #272640;
+}
+/* *SCORE* */
+.circle:nth-child(9) {
+  width: 150px;
+  transform: rotate(0deg) translateX(-25px) translateY(-258px);
+  background-color: #272640;
+  opacity: 0.7;
+}
+
+/* *Panic* */
+.circle:nth-child(10) {
+  transform: rotate(0deg) translateX(0) translateY(215px);
+  background-color: #272640;
+}
 
 /* !PLAY ME CIRCLE! */
 h5 {
+  font-size: 20px;
+  text-decoration: blanchedalmond;
+  position: absolute;
+  color: white;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+/* !MIDDLE CIRCLE */
+.middle {
   font-size: 20px;
   text-decoration: blanchedalmond;
   position: absolute;
@@ -93,36 +119,59 @@ h5 {
 
 #red:hover:nth-child(1) {
   background: #e31918;
-  box-shadow: 5px 5px lightpink;
+  box-shadow: 0 0.5em 0.5em -0.4em lightpink;
 }
 #orange:hover:nth-child(2) {
   background: #ff7b00;
-  box-shadow: 5px 5px lightsalmon;
+  box-shadow: 0 0.5em 0.5em -0.4em lightsalmon;
 }
 #yellow:hover:nth-child(3) {
   background: #ffea00;
-  box-shadow: 5px 5px #ffffb7;
+  box-shadow: 0 0.5em 0.5em -0.4em #ffffb7;
 }
 
 #turquoise:hover:nth-child(4) {
   background: #80ffdb;
-  box-shadow: 5px 5px #caf0f8;
+  box-shadow: 0 0.5em 0.5em -0.4em #caf0f8;
 }
 
 #blue:hover:nth-child(5) {
   background: #072ac8;
-  box-shadow: 5px 5px #48cae4;
-}
-.middle:hover:nth-child(6) {
-  background: #f8f9fa;
-  box-shadow: 2px 2px #f8f9fa;
+  box-shadow: 0 0.5em 0.5em -0.4em #48cae4;
 }
 
-/* GLOBAL CIRCLE */
-.playBox:hover {
+/* *BUTTONS* */
+.middle:hover:nth-child(6) {
+  background: #f8f9fa;
+  box-shadow: 0 0.5em 0.5em -1.4em #f8f9fa;
+}
+
+.reset:hover:nth-child(7) {
+  background: white;
+  box-shadow: 5px 5px #48cae4;
+}
+.back:hover:nth-child(8) {
+  background: white;
+  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  transform: translateY(-0.25em);
+}
+/* score */
+.back:hover:nth-child(10) {
+  background: white;
+  box-shadow: 5px 5px #48cae4;
   opacity: 1;
   border: 2px solid black;
   transition: background-color 0.5s ease;
+}
+
+/* GLOBAL CIRCLE */
+.circle:hover {
+  opacity: 1;
+  border: 2px solid black;
+  transition: background-color 0.5s ease;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  box-shadow: 0 0.5em 0.5em -0.4em #faa307;
+  cursor: pointer;
 }
 
 /*! BUTTONS! !*/
@@ -139,13 +188,9 @@ button {
 }
 
 button:hover {
-  border-color: #f1ff5c;
-  color: lightcyan;
-  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  border-color: #ffa200;
+  color: #ff0a54;
+  box-shadow: 0 0.5em 0.5em -0.4em #ffb700;
   transform: translateY(-0.25em);
-  cursor: progress;
+  cursor: pointer;
 }
-
-/* .settingsWindow {
-  font-size: 20px;
-} */

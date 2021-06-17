@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/excite-bike/jquery-ui.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/trontastic/jquery-ui.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/swanky-purse/jquery-ui.min.css"> -->
     <title>Simonous</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 </head>
@@ -19,8 +21,22 @@
         <button id="modeOne">Game on!</button>
         <!-- <button id="modeSetting">Modes</button> -->
         <button class="settings">Settings</button>
+        <button class="panic">Panic</button>
         <button class="about">About</button>
     </div> 
+
+     <!--? ABOUT  -->
+     <div class="aboutWindow">
+         <p>Simonous is a memory exercise tool specifically designed for musicians in mind who wish to improve their ability to replicate musician pattern. 
+
+            Currently available in pentatonic mode, user is able to manipulate note durations as well as the intervals between the notes. Additionally there are representation of notes in a blinking colourful circles. 
+            
+            As additional tip do try to sing the notes along to visualise them in terms of the height.
+            
+            For any questions or suggestions please feel free to <a href="https://www.linkedin.com/in/mikesparrow/">reach out</a>
+            and I will get back to you when available.
+            </p>
+     </div>
     
      <!--? GAME OVER POPUP! -->
      <div id="popUp">
@@ -37,7 +53,7 @@
         <input type="range" min="0" max="500" value="300" step="100" id="lightDuration">
           <hr>
         Note interval
-        <input type="range" min="200" max="1200" value="500" step="150" id="noteInterval">
+        <input type="range" min="100" max="1200" value="500" step="150" id="noteInterval">
           <hr>
         Audio speed
         <input type="range" min="0.5" max="7" value="1.5" step="0.25" id="audioSpeed">
@@ -53,31 +69,38 @@
 
     <!--? GAME WINDOW! -->
     <div id="gameOne">
-        <h2 id="score">Current score: 1</h2>
-        <!-- <button class="playAgain">Play Again</button> -->
-        <button class="reset">Reset</button>
-        <button class="back">Back</button>
-        <!-- <button class="settings">Settings</button> -->
-
         <div class="gameContainer"> 
-            <div class="playBox circle" id="red">
+            
+            <div class="game circle" id="red">
                 <audio volume="2" class="audio" id="red-audio" src="/Sounds/RedC-4.mp3" allow="muted" preload="none"></audio>
             </div>
-            <div class="playBox circle" id="orange">
+            <div class="game circle" id="orange">
                 <audio class="audio" id="orange-audio" src="/Sounds/OrangeD-4.mp3" allow="muted"></audio>
             </div>
-            <div class="playBox circle" id="yellow">
+            <div class="game circle" id="yellow">
                 <audio class="audio" id="yellow-audio" src="/Sounds/YellowE4.mp3" allow="muted"></audio>
             </div>
-            <div class="playBox circle" id="turquoise">
+            <div class="game circle" id="turquoise">
                 <audio class="audio" id="turquoise-audio" src="/Sounds/TurquoiseG-4.mp3" allow="muted"></audio>
             </div>
-            <div class="playBox circle" id="blue">
+            <div class="game circle" id="blue">
                 <audio class="audio" id="blue-audio" src="/Sounds/BlueB-5.mp3" allow="muted"></audio>
             </div>
             
-            <div class="playBox circle playAgain middle" >
-                <h5 class="motivation">PLAY AGAIN!</h5>
+            <div class="circle playAgain" >
+                <h4 class="middle">PLAY AGAIN!</h4>
+            </div>
+            <div class="circle back">
+                <h5>Back</h5>
+            </div>
+            <div class="circle reset">
+                <h5>Reset</h5>
+            </div>
+            <div class="circle">
+                <h5 id="score">Current score: 1</h5>
+            </div>
+            <div class=" circle panic">
+                <h5>Panic</h5>
             </div>
         </div>
 
