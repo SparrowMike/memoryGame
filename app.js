@@ -51,7 +51,7 @@ const generatorAudioVisual = () => {
         transition: "background-color 0.3s ease",
         "box-shadow": "0 0.5em 0.5em -0.4em #dcd9cf",
       });
-      console.log(`#${item}`);
+      console.log(`Computer choice: #${item}`);
 
       setTimeout(() => {
         $(`#${item}`).removeAttr("style");
@@ -65,13 +65,12 @@ const user = () => {
   $(".game").on("click", (e) => {
     if (e.target.id) {
       userChoice.push(e.target.id);
-      console.log("clicked", e.target.id);
+      console.log("User clicked", e.target.id);
       document.querySelector(`#${e.target.id}-audio`).volume = audioVolume;
       document.querySelector(`#${e.target.id}-audio`).playbackRate = audioSpeed;
       document.querySelector(`#${e.target.id}-audio`).pause();
       document.querySelector(`#${e.target.id}-audio`).currentTime = 0;
       $(`#${e.target.id}-audio`).get(0).play();
-      console.log("user clicked", e.target.id);
       if (userChoice.length === computerChoice.length) {
         compare(userChoice, computerChoice);
       }
@@ -133,7 +132,7 @@ const nextLevel = () => {
 
 //!=================BUTTONS=======================
 const buttons = () => {
-  //?==============POP UP'S====================
+  //?==================POP UP'S===================
   $("#popUp").dialog({ autoOpen: false }, { title: "Game Over!" });
   $("#modes").dialog({ autoOpen: false }, { title: "Modes" });
 
@@ -147,7 +146,7 @@ const buttons = () => {
     }, 100);
   });
 
-  //?=============RESET THE GAME================
+  //?================RESET THE GAME===============
   $(".reset").on("click", () => {
     score = 1;
     document.querySelector(".audio").pause();
@@ -157,7 +156,7 @@ const buttons = () => {
     generator(score, pentatonic);
   });
 
-  //?===============BACK TO MAIN===============
+  //?=================BACK TO MAIN================
   $(".back").on("click", () => {
     $(".main").toggle();
     $("#gameOne").toggle();
@@ -168,7 +167,7 @@ const buttons = () => {
     score = 1;
   });
 
-  //?================PANIC!!!!==================
+  //?=================PANIC!!!!===================
   $(".panic").on("click", () => {
     location.reload();
   });
@@ -192,7 +191,7 @@ const buttons = () => {
     resetArr();
   });
 
-  //?============COLLECT VALUE=====================
+  //?==============COLLECT VALUE===================
   const settingsValue = () => {
     lightDuration = $("#lightDuration").val();
     noteInterval = $("#noteInterval").val();
@@ -201,14 +200,14 @@ const buttons = () => {
     score = $("#scoreInput").val();
   };
 
-  //?================ABOUT=========================
+  //?==================ABOUT=======================
   $(".aboutWindow").dialog({ autoOpen: false }, { title: "About" });
   $(".about").on("click", () => {
     $(".aboutWindow").dialog("open");
   });
 };
 
-//*==================MAIN=========================
+//*===================MAIN========================
 const main = () => {
   buttons();
   user();
