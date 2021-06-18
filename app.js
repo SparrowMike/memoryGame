@@ -165,6 +165,7 @@ const buttons = () => {
     document.querySelector(".audio").currentTime = 0;
     clearTimeout(generatorAudioVisual());
     score = 1;
+    $("#score").text(`Current score: ${score}`);
   });
 
   //?=================PANIC!!!!===================
