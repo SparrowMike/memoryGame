@@ -192,6 +192,7 @@ const buttons = () => {
     resetArr();
   });
 
+  //?============COLLECT VALUE=====================
   const settingsValue = () => {
     lightDuration = $("#lightDuration").val();
     noteInterval = $("#noteInterval").val();
@@ -200,14 +201,14 @@ const buttons = () => {
     score = $("#scoreInput").val();
   };
 
-  //?===================ABOUT=======================
+  //?================ABOUT=========================
   $(".aboutWindow").dialog({ autoOpen: false }, { title: "About" });
   $(".about").on("click", () => {
     $(".aboutWindow").dialog("open");
   });
 };
 
-//*===================MAIN========================
+//*==================MAIN=========================
 const main = () => {
   buttons();
   user();
