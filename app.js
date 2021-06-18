@@ -1,10 +1,11 @@
+//*=====================DATA======================
 let audioVolume = 0.8;
 let lightDuration = 300;
 let noteInterval = 600;
 let audioSpeed = 1.5;
 let score = 1;
 
-//*===================ARRAYS====================
+//*====================ARRAYS=====================
 const userChoice = [];
 const computerChoice = [];
 const motivation = [
@@ -21,7 +22,7 @@ const motivation = [
 const pentatonic = ["red", "orange", "yellow", "turquoise", "blue"];
 
 //! Functions
-//*========GENERATES RANDOM PATTERN=============
+//*==========GENERATES RANDOM PATTERN=============
 const generator = (score, mode) => {
   for (let i = 1; i <= score; i++) {
     let random = Math.floor(Math.random() * mode.length);
@@ -30,7 +31,7 @@ const generator = (score, mode) => {
   generatorAudioVisual();
 };
 
-//*==========COMPUTER OUTPUT AV===============
+//*=============COMPUTER OUTPUT AV================
 const generatorAudioVisual = () => {
   computerChoice.forEach((item, index) => {
     setTimeout(() => {
@@ -78,7 +79,7 @@ const user = () => {
   });
 };
 
-//*============COMPARES ARRAYS=====================
+//*============COMPARES ARRAYS====================
 const compare = (arr1, arr2) => {
   if (arr1.toString() === arr2.toString()) {
     nextLevel();
@@ -90,14 +91,14 @@ const compare = (arr1, arr2) => {
   }
 };
 
-//*==============RESET ARRAYS====================
+//*==============RESET ARRAYS=====================
 const resetArr = () => {
   $("#score").text(`Current score: ${score}`);
   userChoice.splice(0, userChoice.length);
   computerChoice.splice(0, computerChoice.length);
 };
 
-//*===============GAME OVER===================
+//*================GAME OVER======================
 const reset = () => {
   score = 1;
   resetArr();
@@ -105,7 +106,7 @@ const reset = () => {
   return;
 };
 
-//*=============MOTIVATION===================
+//*================MOTIVATION=====================
 const keepUp = () => {
   let randomMot = motivation[Math.floor(Math.random() * motivation.length)];
   $(".middle").text(randomMot);
@@ -120,7 +121,7 @@ const keepUp = () => {
   }, 750);
 };
 
-//*=============LEVEL UP====================
+//*=================LEVEL UP======================
 const nextLevel = () => {
   score++;
   resetArr();
@@ -130,7 +131,7 @@ const nextLevel = () => {
   return;
 };
 
-//!======================BUTTONS========================
+//!=================BUTTONS=======================
 const buttons = () => {
   //?==============POP UP'S====================
   $("#popUp").dialog({ autoOpen: false }, { title: "Game Over!" });

@@ -13,7 +13,7 @@ body {
   animation: rattle 0.2s;
 }
 
-/*! MAIN WINDOW! !*/
+/*!============MAIN WINDOW============*/
 .main {
   display: inline-block;
   justify-content: center;
@@ -21,7 +21,7 @@ body {
   margin: 100px;
 }
 
-/*! GAME WINDOW !*/
+/*!============GAME WINDOW============*/
 #gameOne {
   padding: 50px;
 }
@@ -92,7 +92,7 @@ body {
   background-color: #232323;
 }
 
-/* !PLAY ME CIRCLE! */
+/* !PLAY ME CIRCLE TEXT! */
 h5 {
   font-size: 20px;
   text-decoration: blanchedalmond;
