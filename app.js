@@ -34,7 +34,7 @@ const generator = (score, mode) => {
 //*=============COMPUTER OUTPUT AV================
 const generatorAudioVisual = () => {
   computerChoice.forEach((item, index) => {
-    setTimeout(() => {
+    let time = setTimeout(() => {
       //*======================AUDIO======================
       if (item) {
         document.querySelector(`#${item}-audio`).playbackRate = audioSpeed;
@@ -163,7 +163,6 @@ const buttons = () => {
     resetArr();
     document.querySelector(".audio").pause();
     document.querySelector(".audio").currentTime = 0;
-    clearTimeout(generatorAudioVisual());
     score = 1;
     $("#score").text(`Current score: ${score}`);
   });
