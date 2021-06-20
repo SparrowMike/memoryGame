@@ -17,7 +17,3 @@ Jump to score: Simply enter a number of the notes you would like the computer to
 
 PANIC
 Just incase game glitches press panic to reset the entire game
-
-ADDITIONAL FEATURES TBC!
-https://www.flutopedia.com/sound_color.htm
-https://www.youtube.com/watch?v=o3HVF6C14HU
