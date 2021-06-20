@@ -2,7 +2,7 @@
 
 Simonous is a memory exercise tool specifically designed for musicians in mind who wish to improve their ability to replicate musical pattern (AKA Ear Training).
 
-Currently available in pentatonic mode, the user is able to manipulate note durations as well as the intervals between the notes. Additionally there are representation of notes in a blinking colourful circles.
+Currently available in major scale and major pentatonic, the user is able to manipulate note durations as well as the intervals between the notes. Additionally there are representation of notes in a blinking colourful circles.
 
 SETTINGS
 Volume: Ability to adjust the loudness of the notes played.
