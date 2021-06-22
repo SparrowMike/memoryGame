@@ -6,11 +6,11 @@ const pentatonic = {
   hoverBackground: ["#e31918", "#ff7b00", "#ffea00", "#80ffdb", "#072ac8"],
   shadow: ["lightpink", "lightsalmon", "#ffffb7", "#caf0f8", "#48cae4"],
   audio: [
-    "/Sounds/C4.mp3",
-    "/Sounds/D4.mp3",
-    "/Sounds/E4.mp3",
-    "/Sounds/G4.mp3",
-    "/Sounds/A5.mp3",
+    "/Sounds/C4.wav",
+    "/Sounds/D4.wav",
+    "/Sounds/E4.wav",
+    "/Sounds/G4.wav",
+    "/Sounds/A4.wav",
   ],
 };
 
@@ -45,13 +45,13 @@ const major = {
     "TBC",
   ],
   audio: [
-    "/Sounds/C4.mp3",
-    "/Sounds/D4.mp3",
-    "/Sounds/E4.mp3",
-    "/Sounds/F4.mp3",
-    "/Sounds/G4.mp3",
-    "/Sounds/A5.mp3",
-    "/Sounds/B5.mp3",
+    "/Sounds/C4.wav",
+    "/Sounds/D4.wav",
+    "/Sounds/E4.wav",
+    "/Sounds/F4.wav",
+    "/Sounds/G4.wav",
+    "/Sounds/A4.wav",
+    "/Sounds/B4.wav",
   ],
 };
 
@@ -146,6 +146,7 @@ const generatorAudioVisual = () => {
       }, lightDuration);
     }, noteInterval * index);
   });
+  return;
 };
 
 //*================USER INPUT=====================
@@ -247,11 +248,11 @@ const buttons = () => {
 
   //?================RESET THE GAME===============
   $(".reset").on("click", () => {
-    score = 1;
     $(".audio").trigger("pause");
     $(".audio").prop("currentTime", 0);
-    resetArr();
     $("#popUp").dialog("close");
+    resetArr();
+    score = 1;
     generator(score, mode);
   });
 
@@ -264,9 +265,9 @@ const buttons = () => {
       $("#gameWindowTwo").toggle();
     }
     $("#gameButtons").toggle();
-    resetArr();
     $(".audio").trigger("pause");
     $(".audio").prop("currentTime", 0);
+    resetArr();
     score = 1;
     $("#score").text(`Current score: ${score}`);
   });
@@ -335,5 +336,6 @@ $(main);
 //* ability to change the instrument
 // Notes left countdown-maybe
 // CHORDS?!
+// Arpegios
 // Ability to use the keyboard
 // BPM!!!
