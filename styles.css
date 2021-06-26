@@ -44,7 +44,7 @@ hr {
   top: calc(50% - 25px);
   height: 100px;
   width: 100px;
-  border: 2px solid #000000;
+  border: 1px solid #000000;
   border-radius: 50%;
   opacity: 0.5;
 }
@@ -106,7 +106,7 @@ h5 {
 /* GLOBAL CIRCLE */
 .game:hover {
   opacity: 1;
-  border: 2px solid black;
+  border: 1px solid black;
   transition: background-color 0.5s ease;
   transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   box-shadow: 0 0.5em 0.5em -0.4em #faa307;

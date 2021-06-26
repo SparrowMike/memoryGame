@@ -1,9 +1,8 @@
 //!======================MODES========================
 const pentatonic = {
   id: ["C", "D", "E", "G", "A"],
-  colour: ["red", "orange", "yellow", "turquoise", "blue"],
   rotate: ["270deg", "345deg", "60deg", "120deg", "195deg"],
-  hoverBackground: ["#e31918", "#ff7b00", "#ffea00", "#80ffdb", "#072ac8"],
+  colour: ["#e31918", "#ff7b00", "#ffea00", "#80ffdb", "#072ac8"],
   shadow: ["lightpink", "lightsalmon", "#ffffb7", "#caf0f8", "#48cae4"],
   audio: [
     "/Sounds/C4.wav",
@@ -14,9 +13,8 @@ const pentatonic = {
   ],
 };
 
-const major = {
+const melodicMinor = {
   id: ["1", "2", "3", "4", "5", "6", "7"],
-  colour: ["red", "orange", "green", "yellow", "turquoise", "blue", "purple"],
   rotate: [
     "270deg",
     "321.43deg",
@@ -26,7 +24,38 @@ const major = {
     "167.15deg",
     "218.58deg",
   ],
-  hoverBackground: [
+  colour: [
+    "#ff6300",
+    "#99ff00",
+    "#28ff00",
+    "#007cff",
+    "#4500ea",
+    "#740000",
+    "#ee0000",
+  ],
+  audio: [
+    "/Sounds/A3.wav",
+    "/Sounds/B3.wav",
+    "/Sounds/C4.wav",
+    "/Sounds/D4.wav",
+    "/Sounds/E4.wav",
+    "/Sounds/Gb4.wav",
+    "/Sounds/Ab4.wav",
+  ],
+};
+
+const major = {
+  id: ["1", "2", "3", "4", "5", "6", "7"],
+  rotate: [
+    "270deg",
+    "321.43deg",
+    "12.86deg",
+    "64.29deg",
+    "115.72deg",
+    "167.15deg",
+    "218.58deg",
+  ],
+  colour: [
     "#e31918",
     "#ff7b00",
     "#38b000",
@@ -34,15 +63,6 @@ const major = {
     "#80ffdb",
     "#072ac8",
     "#7e0afa",
-  ],
-  shadow: [
-    "lightpink",
-    "lightsalmon",
-    "TBC",
-    "#ffffb7",
-    "#caf0f8",
-    "#48cae4",
-    "TBC",
   ],
   audio: [
     "/Sounds/C4.wav",
@@ -55,6 +75,36 @@ const major = {
   ],
 };
 
+const harmonicMinor = {
+  id: ["1", "2", "3", "4", "5", "6", "7"],
+  rotate: [
+    "270deg",
+    "321.43deg",
+    "12.86deg",
+    "64.29deg",
+    "115.72deg",
+    "167.15deg",
+    "218.58deg",
+  ],
+  colour: [
+    "#ff6300",
+    "#99ff00",
+    "#28ff00",
+    "#007cff",
+    "#4500ea",
+    "#57009e",
+    "#ee0000",
+  ],
+  audio: [
+    "/Sounds/A3.wav",
+    "/Sounds/B3.wav",
+    "/Sounds/C4.wav",
+    "/Sounds/D4.wav",
+    "/Sounds/E4.wav",
+    "/Sounds/F4.wav",
+    "/Sounds/Ab4.wav",
+  ],
+};
 //*====================ARRAYS=====================
 const motivation = [
   "Great Job!",
@@ -98,7 +148,7 @@ const gameWindow = (mode) => {
     $(`#${mode.id[i]}`)
       .on("mouseenter", () => {
         $(`#${mode.id[i]}:nth-child(${[i + 1]})`).css({
-          "box-shadow": ` 0 0.5em 0.5em -0.4em ${mode.hoverBackground[i]}`,
+          "box-shadow": ` 0 0.5em 0.5em -0.4em ${mode.colour[i]}`,
         });
       })
       .on("mouseleave", () => {
@@ -109,6 +159,7 @@ const gameWindow = (mode) => {
 
 //!=================MODE PICKED========================
 //*============GENERATES RANDOM PATTERN==============
+
 const generator = (score, mode) => {
   for (let i = 1; i <= score; i++) {
     let random = Math.floor(Math.random() * mode.id.length);
@@ -134,8 +185,10 @@ const generatorAudioVisual = () => {
         opacity: 1,
         background: item,
         transition: "background-color 0.3s ease",
-        "box-shadow": "0 0.5em 0.5em -0.4em #dcd9cf",
+        "box-shadow": "0 0.5em 0.5em -0.4em #7a7a7a",
       });
+      console.log("item", item);
+
       setTimeout(() => {
         $(`#${item}`).css({
           opacity: "",
@@ -248,16 +301,17 @@ const buttons = () => {
 
   //?================RESET THE GAME===============
   $(".reset").on("click", () => {
+    score = 1;
     $(".audio").trigger("pause");
     $(".audio").prop("currentTime", 0);
     $("#popUp").dialog("close");
     resetArr();
-    score = 1;
     generator(score, mode);
   });
 
   //?=================BACK TO MAIN================
   $(".back").on("click", () => {
+    score = 1;
     $(".main").toggle();
     if (mode === pentatonic) {
       $("#gameWindowOne").toggle();
@@ -268,7 +322,6 @@ const buttons = () => {
     $(".audio").trigger("pause");
     $(".audio").prop("currentTime", 0);
     resetArr();
-    score = 1;
     $("#score").text(`Current score: ${score}`);
   });
 
@@ -297,6 +350,10 @@ const buttons = () => {
       mode = pentatonic;
     } else if ($("#mode").val() === "major") {
       mode = major;
+    } else if ($("#mode").val() === "melodicMinor") {
+      mode = melodicMinor;
+    } else if ($("#mode").val() === "harmonicMinor") {
+      mode = harmonicMinor;
     }
     lightDuration = noteInterval - 75;
   };
