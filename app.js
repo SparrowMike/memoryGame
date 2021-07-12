@@ -105,6 +105,7 @@ const harmonicMinor = {
     "/Sounds/Ab4.wav",
   ],
 };
+
 //*====================ARRAYS=====================
 const motivation = [
   "Great Job!",
