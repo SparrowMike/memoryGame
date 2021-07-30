@@ -5,11 +5,11 @@ const pentatonic = {
   colour: ["#e31918", "#ff7b00", "#ffea00", "#80ffdb", "#072ac8"],
   shadow: ["lightpink", "lightsalmon", "#ffffb7", "#caf0f8", "#48cae4"],
   audio: [
-    "/Sounds/C4.wav",
-    "/Sounds/D4.wav",
-    "/Sounds/E4.wav",
-    "/Sounds/G4.wav",
-    "/Sounds/A4.wav",
+    "/Sounds/C4.mp3",
+    "/Sounds/D4.mp3",
+    "/Sounds/E4.mp3",
+    "/Sounds/G4.mp3",
+    "/Sounds/A4.mp3",
   ],
 };
 
@@ -34,13 +34,13 @@ const melodicMinor = {
     "#ee0000",
   ],
   audio: [
-    "/Sounds/A3.wav",
-    "/Sounds/B3.wav",
-    "/Sounds/C4.wav",
-    "/Sounds/D4.wav",
-    "/Sounds/E4.wav",
-    "/Sounds/Gb4.wav",
-    "/Sounds/Ab4.wav",
+    "/Sounds/A3.mp3",
+    "/Sounds/B3.mp3",
+    "/Sounds/C4.mp3",
+    "/Sounds/D4.mp3",
+    "/Sounds/E4.mp3",
+    "/Sounds/Gb4.mp3",
+    "/Sounds/Ab4.mp3",
   ],
 };
 
@@ -65,13 +65,13 @@ const major = {
     "#7e0afa",
   ],
   audio: [
-    "/Sounds/C4.wav",
-    "/Sounds/D4.wav",
-    "/Sounds/E4.wav",
-    "/Sounds/F4.wav",
-    "/Sounds/G4.wav",
-    "/Sounds/A4.wav",
-    "/Sounds/B4.wav",
+    "/Sounds/C4.mp3",
+    "/Sounds/D4.mp3",
+    "/Sounds/E4.mp3",
+    "/Sounds/F4.mp3",
+    "/Sounds/G4.mp3",
+    "/Sounds/A4.mp3",
+    "/Sounds/B4.mp3",
   ],
 };
 
@@ -96,13 +96,13 @@ const harmonicMinor = {
     "#ee0000",
   ],
   audio: [
-    "/Sounds/A3.wav",
-    "/Sounds/B3.wav",
-    "/Sounds/C4.wav",
-    "/Sounds/D4.wav",
-    "/Sounds/E4.wav",
-    "/Sounds/F4.wav",
-    "/Sounds/Ab4.wav",
+    "/Sounds/A3.mp3",
+    "/Sounds/B3.mp3",
+    "/Sounds/C4.mp3",
+    "/Sounds/D4.mp3",
+    "/Sounds/E4.mp3",
+    "/Sounds/F4.mp3",
+    "/Sounds/Ab4.mp3",
   ],
 };
 

@@ -17,3 +17,5 @@ Jump to score: Simply enter a number of the notes you would like the computer to
 
 PANIC
 Just incase game glitches press panic to reset the entire game
+
+
