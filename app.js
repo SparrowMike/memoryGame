@@ -98,10 +98,10 @@ const harmonicMinor = {
   audio: [
     "/Sounds/A3.mp3",
     "/Sounds/B3.mp3",
-    "/Sounds/C3.mp3",
-    "/Sounds/D3.mp3",
-    "/Sounds/E3.mp3",
-    "/Sounds/F3.mp3",
+    "/Sounds/C4.mp3",
+    "/Sounds/D4.mp3",
+    "/Sounds/E4.mp3",
+    "/Sounds/F4.mp3",
     "/Sounds/Ab4.mp3",
   ],
 };
@@ -173,6 +173,7 @@ const generator = (score, mode) => {
 //*=============COMPUTER OUTPUT AV================
 const generatorAudioVisual = () => {
   computerChoice.forEach((item, index) => {
+    console.log(item);
     setTimeout(() => {
       //*======================AUDIO======================
       $(`#${item}-audio`).prop(
@@ -188,7 +189,7 @@ const generatorAudioVisual = () => {
         transition: "background-color 0.3s ease",
         "box-shadow": "0 0.5em 0.5em -0.4em #7a7a7a",
       });
-      console.log("item", item);
+      // console.log("item", item);
 
       setTimeout(() => {
         $(`#${item}`).css({
@@ -218,6 +219,7 @@ const user = () => {
         compare(userChoice, computerChoice);
       }
     }
+    console.log(e.target);
   });
 };
 
@@ -338,6 +340,7 @@ const buttons = () => {
     $("#score").text(`Current score: ${score}`);
     settingsValue();
     resetArr();
+    $(".audio").remove();
   });
 
   //?==============COLLECT VALUE===================
@@ -346,7 +349,6 @@ const buttons = () => {
     audioSpeed = $("#audioSpeed").val();
     audioVolume = $("#volume").val();
     score = $("#scoreInput").val();
-
     if ($("#mode").val() === "pentatonic") {
       mode = pentatonic;
     } else if ($("#mode").val() === "major") {
