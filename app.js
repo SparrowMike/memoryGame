@@ -13,37 +13,6 @@ const pentatonic = {
   ],
 };
 
-const melodicMinor = {
-  id: ["1", "2", "3", "4", "5", "6", "7"],
-  rotate: [
-    "270deg",
-    "321.43deg",
-    "12.86deg",
-    "64.29deg",
-    "115.72deg",
-    "167.15deg",
-    "218.58deg",
-  ],
-  colour: [
-    "#ff6300",
-    "#99ff00",
-    "#28ff00",
-    "#007cff",
-    "#4500ea",
-    "#740000",
-    "#ee0000",
-  ],
-  audio: [
-    "/Sounds/A3.mp3",
-    "/Sounds/B3.mp3",
-    "/Sounds/C4.mp3",
-    "/Sounds/D4.mp3",
-    "/Sounds/E4.mp3",
-    "/Sounds/Gb4.mp3",
-    "/Sounds/Ab4.mp3",
-  ],
-};
-
 const major = {
   id: ["1", "2", "3", "4", "5", "6", "7"],
   rotate: [
@@ -72,6 +41,37 @@ const major = {
     "/Sounds/G4.mp3",
     "/Sounds/A4.mp3",
     "/Sounds/B4.mp3",
+  ],
+};
+
+const melodicMinor = {
+  id: ["1", "2", "3", "4", "5", "6", "7"],
+  rotate: [
+    "270deg",
+    "321.43deg",
+    "12.86deg",
+    "64.29deg",
+    "115.72deg",
+    "167.15deg",
+    "218.58deg",
+  ],
+  colour: [
+    "#ff6300",
+    "#99ff00",
+    "#28ff00",
+    "#007cff",
+    "#4500ea",
+    "#740000",
+    "#ee0000",
+  ],
+  audio: [
+    "/Sounds/A3.mp3",
+    "/Sounds/B3.mp3",
+    "/Sounds/C4.mp3",
+    "/Sounds/D4.mp3",
+    "/Sounds/E4.mp3",
+    "/Sounds/Gb4.mp3",
+    "/Sounds/Ab4.mp3",
   ],
 };
 
