@@ -98,10 +98,10 @@ const harmonicMinor = {
   audio: [
     "/Sounds/A3.mp3",
     "/Sounds/B3.mp3",
-    "/Sounds/C4.mp3",
-    "/Sounds/D4.mp3",
-    "/Sounds/E4.mp3",
-    "/Sounds/F4.mp3",
+    "/Sounds/C3.mp3",
+    "/Sounds/D3.mp3",
+    "/Sounds/E3.mp3",
+    "/Sounds/F3.mp3",
     "/Sounds/Ab4.mp3",
   ],
 };
