@@ -40,13 +40,13 @@ hr {
 .circle,
 .score {
   position: absolute;
-  left: calc(50% - 25px);
-  top: calc(50% - 25px);
   height: 100px;
   width: 100px;
   border: 1px solid #000000;
   border-radius: 50%;
   opacity: 0.5;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
 }
 /*!=========PLAY ME CIRCLE TEXT===========*/
 h5 {
@@ -69,7 +69,6 @@ h5 {
 .globalCircle:nth-child(1) {
   height: 145px;
   width: 145px;
-  transform: rotate(0) translateX(-23px) translateY(-23px);
   background-color: whitesmoke;
 }
 
@@ -83,12 +82,12 @@ h5 {
 }
 .score:nth-child(4) {
   width: 130px;
-  transform: rotate(0deg) translateX(-15px) translateY(-258px);
+  transform: rotate(0deg) translateY(-258px);
   background-color: #343434;
   opacity: 0.7;
 }
 .panic:nth-child(5) {
-  transform: rotate(0deg) translateX(0) translateY(215px);
+  transform: rotate(0deg) translateY(215px);
   background-color: #232323;
 }
 
