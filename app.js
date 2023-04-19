@@ -173,7 +173,6 @@ const generator = (score, mode) => {
 //*=============COMPUTER OUTPUT AV================
 const generatorAudioVisual = () => {
   computerChoice.forEach((item, index) => {
-    console.log(item);
     setTimeout(() => {
       //*======================AUDIO======================
       $(`#${item}-audio`).prop(
@@ -219,7 +218,7 @@ const user = () => {
         compare(userChoice, computerChoice);
       }
     }
-    console.log(e.target);
+    // console.log(e.target);
   });
 };
 

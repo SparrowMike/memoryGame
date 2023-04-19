@@ -4,22 +4,22 @@ body {
   overflow: hidden;
   animation-delay: 1s;
   height: 100vh;
-  background-color: lightslategray;
   text-align: center;
   text-shadow: 0.5px 0.5px lightpink;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80);
   background-size: cover;
   animation: rattle 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 /*!============MAIN WINDOW============*/
-.main {
-  display: inline-block;
-  justify-content: center;
-  border: 100px;
-  margin: 100px;
-}
+/* .main {
+  
+} */
 
 /*!============GAME WINDOW============*/
 #gameWindowOne {
@@ -28,7 +28,7 @@ body {
 
 /*!============SETTINGS!============*/
 /* .setingsWindow {
-  font-size: 100px;
+
 } */
 
 hr {
@@ -142,6 +142,7 @@ button:hover {
   position: relative;
   text-align: center;
   text-transform: uppercase;
+  margin-top: 0;
 }
 @keyframes slam {
   0% {
