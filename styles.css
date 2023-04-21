@@ -9,6 +9,7 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80);
   background-size: cover;
+  background-position: center;
   animation: rattle 0.2s;
   display: flex;
   align-items: center;
@@ -47,7 +48,9 @@ hr {
   opacity: 0.5;
   top: 0; bottom: 0; left: 0; right: 0;
   margin: auto;
+  transition: all .2s ease !important;
 }
+
 /*!=========PLAY ME CIRCLE TEXT===========*/
 h5 {
   font-size: 20px;
@@ -67,8 +70,8 @@ h5 {
   transform: translateX(-50%) translateY(-50%);
 }
 .globalCircle:nth-child(1) {
-  height: 145px;
-  width: 145px;
+  height: 140px;
+  width: 140px;
   background-color: whitesmoke;
 }
 
@@ -103,11 +106,13 @@ h5 {
 /*!============GAME TWO!============*/
 
 /* GLOBAL CIRCLE */
+.game {
+  transition: all .2s ease !important;
+}
+
 .game:hover {
   opacity: 1;
   border: 1px solid black;
-  transition: background-color 0.5s ease;
-  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   box-shadow: 0 0.5em 0.5em -0.4em #faa307;
   cursor: pointer;
 }
